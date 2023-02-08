@@ -50,4 +50,40 @@ extension DependencyProvider: MainViewControllerFactory {
     func buildTabBarController() -> UITabBarController {
         return UITabBarController()
     }
+    
+    func buildMostEmailedVC(service: Services) -> MostEmailedViewController {
+        let viewController = MostEmailedViewController.instantiate(from: .MostEmailed)
+        let model = MostEmailedModel()
+        let presenter = MostEmailedPresenter(viewController, model: model)
+        viewController.presenter = presenter
+        
+        return viewController
+    }
+    
+    func buildMostSharedVC(service: Services) -> MostSharedViewController {
+        let viewController = MostSharedViewController.instantiate(from: .MostShared)
+        let model = MostSharedModel()
+        let presenter = MostSharedPresenter(viewController, model: model)
+        viewController.presenter = presenter
+        
+        return viewController
+    }
+    
+    func buildMostViewedVC(service: Services) -> MostViewedViewController {
+        let viewController = MostViewedViewController.instantiate(from: .MostViewed)
+        let model = MostViewedModel()
+        let presenter = MostViewedPresenter(viewController, model: model)
+        viewController.presenter = presenter
+        
+        return viewController
+    }
+    
+    func buildFavoritesArticlesVC(service: Services) -> FavoritesArticlesViewController {
+        let viewController = FavoritesArticlesViewController.instantiate(from: .FavoritesArticles)
+        let model = FavoritesArticlesModel()
+        let presenter = FavoritesArticlesPresenter(viewController, model: model)
+        viewController.presenter = presenter
+        
+        return viewController
+    }
 }

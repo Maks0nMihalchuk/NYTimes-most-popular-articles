@@ -9,13 +9,15 @@ import UIKit
 
 class BaseViewController: UIViewController {
     
-    var baseCollectionView = UICollectionView(frame: .zero)
+    var baseCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
 
+    // MARK: - Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
+    // MARK: - setup baseCollectionView
     func setupBaseCollectionView() {
         view.addSubview(baseCollectionView)
         
@@ -29,6 +31,7 @@ class BaseViewController: UIViewController {
         ])
     }
     
+    // MARK: - show and hide LoadingView
     func showLoadingView() {
         let windowView = UIApplication.shared.keyWindow
         

@@ -24,7 +24,29 @@ final class MainCoordinator: Coordinator {
     
     private func showTabBarController() {
         let controller = factory.buildTabBarController()
+        let controllers = [getMostEmailedViewController(), getMostSharedViewController(), getMostViewedViewController(), getFavoritesArticlesViewController()]
+        controller.viewControllers = controllers
         self.setRoot(controller, hideBar: true)
+    }
+    
+    private func getMostEmailedViewController() -> UINavigationController {
+        let controller = factory.buildMostEmailedVC(service: services)
+        return UINavigationController(rootViewController: controller)
+    }
+    
+    private func getMostSharedViewController() -> UINavigationController {
+        let controller = factory.buildMostSharedVC(service: services)
+        return UINavigationController(rootViewController: controller)
+    }
+    
+    private func getMostViewedViewController() -> UINavigationController {
+        let controller = factory.buildMostViewedVC(service: services)
+        return UINavigationController(rootViewController: controller)
+    }
+    
+    func getFavoritesArticlesViewController() -> UINavigationController {
+        let controller = factory.buildFavoritesArticlesVC(service: services)
+        return UINavigationController(rootViewController: controller)
     }
     
     // MARK: - Init
