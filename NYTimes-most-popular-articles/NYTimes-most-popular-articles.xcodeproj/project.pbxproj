@@ -74,7 +74,6 @@
 		D7BE41372993BD2E00892779 /* NYTimes-most-popular-articles */ = {
 			isa = PBXGroup;
 			children = (
-				D7BE41692993DB2500892779 /* New Group */,
 				D7BE414D2993BE6000892779 /* ApplicationLayer */,
 				D7BE415B2993C25200892779 /* Services */,
 				D7BE41532993C0FA00892779 /* PresentationLayer */,
@@ -164,13 +163,6 @@
 				D7BE41672993D54000892779 /* BaseViewController.swift */,
 			);
 			path = BaseClases;
-			sourceTree = "<group>";
-		};
-		D7BE41692993DB2500892779 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		D7BE416A2993DB5700892779 /* Helpers */ = {
