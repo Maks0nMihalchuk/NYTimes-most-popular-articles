@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ArticleCollectionViewCell" id="gTV-IL-0wX" customClass="ArticleCollectionViewCell" customModule="NYTimes_most_popular_articles" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="294" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="294" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVq-Mn-0gV">
+                        <rect key="frame" x="20" y="8" width="254" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="LVq-Mn-0gV" secondAttribute="bottom" constant="8" id="MiA-av-W7x"/>
+                <constraint firstAttribute="trailing" secondItem="LVq-Mn-0gV" secondAttribute="trailing" constant="20" id="Uka-s7-mUb"/>
+                <constraint firstItem="LVq-Mn-0gV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="hhS-c9-DU7"/>
+                <constraint firstItem="LVq-Mn-0gV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="pdm-lP-AgV"/>
+            </constraints>
+            <size key="customSize" width="294" height="50"/>
+            <connections>
+                <outlet property="articleTitle" destination="LVq-Mn-0gV" id="dlc-0T-2mk"/>
+            </connections>
+            <point key="canvasLocation" x="203.0534351145038" y="-19.718309859154932"/>
+        </collectionViewCell>
+    </objects>
+</document>
