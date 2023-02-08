@@ -17,6 +17,7 @@ class MostSharedViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         setupBaseCollectionView()
     }
 }
@@ -24,4 +25,12 @@ class MostSharedViewController: BaseViewController {
 // MARK: - MostSharedViewProtocol
 extension MostSharedViewController: MostSharedViewProtocol {
     
+}
+
+// MARK: - setup UI
+private extension MostSharedViewController {
+    
+    private func setupUI() {
+        view.backgroundColor = .white
+    }
 }

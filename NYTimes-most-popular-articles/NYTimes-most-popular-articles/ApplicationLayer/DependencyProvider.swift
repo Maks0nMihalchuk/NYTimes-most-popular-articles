@@ -52,7 +52,12 @@ extension DependencyProvider: MainViewControllerFactory {
     }
     
     func buildMostEmailedVC(service: Services) -> MostEmailedViewController {
-        let viewController = MostEmailedViewController.instantiate(from: .MostEmailed)
+        let viewController = MostEmailedViewController()
+        let tabBarImage = UIImage(systemName: "list.bullet.rectangle")
+        let selectedTabBarImage = UIImage(systemName: "list.bullet.rectangle.fill")
+        viewController.tabBarItem = .init(title: "Most emailed",
+                                          image: tabBarImage,
+                                          selectedImage: selectedTabBarImage)
         let model = MostEmailedModel()
         let presenter = MostEmailedPresenter(viewController, model: model)
         viewController.presenter = presenter
@@ -61,7 +66,12 @@ extension DependencyProvider: MainViewControllerFactory {
     }
     
     func buildMostSharedVC(service: Services) -> MostSharedViewController {
-        let viewController = MostSharedViewController.instantiate(from: .MostShared)
+        let viewController = MostSharedViewController()
+        let tabBarImage = UIImage(systemName: "square.and.arrow.up")
+        let selectedTabBarImage = UIImage(systemName: "square.and.arrow.up.fill")
+        viewController.tabBarItem = .init(title: "Most shared",
+                                          image: tabBarImage,
+                                          selectedImage: selectedTabBarImage)
         let model = MostSharedModel()
         let presenter = MostSharedPresenter(viewController, model: model)
         viewController.presenter = presenter
@@ -70,7 +80,12 @@ extension DependencyProvider: MainViewControllerFactory {
     }
     
     func buildMostViewedVC(service: Services) -> MostViewedViewController {
-        let viewController = MostViewedViewController.instantiate(from: .MostViewed)
+        let tabBarImage = UIImage(systemName: "viewfinder.circle")
+        let selectedTabBarImage = UIImage(systemName: "viewfinder.circle.fill")
+        let viewController = MostViewedViewController()
+        viewController.tabBarItem = .init(title: "Most viewed",
+                                          image: tabBarImage,
+                                          selectedImage: selectedTabBarImage)
         let model = MostViewedModel()
         let presenter = MostViewedPresenter(viewController, model: model)
         viewController.presenter = presenter
@@ -79,7 +94,12 @@ extension DependencyProvider: MainViewControllerFactory {
     }
     
     func buildFavoritesArticlesVC(service: Services) -> FavoritesArticlesViewController {
-        let viewController = FavoritesArticlesViewController.instantiate(from: .FavoritesArticles)
+        let tabBarImage = UIImage(systemName: "star")
+        let selectedTabBarImage = UIImage(systemName: "star.fill")
+        let viewController = FavoritesArticlesViewController()
+        viewController.tabBarItem = .init(title: "Favorites",
+                                          image: tabBarImage,
+                                          selectedImage: selectedTabBarImage)
         let model = FavoritesArticlesModel()
         let presenter = FavoritesArticlesPresenter(viewController, model: model)
         viewController.presenter = presenter

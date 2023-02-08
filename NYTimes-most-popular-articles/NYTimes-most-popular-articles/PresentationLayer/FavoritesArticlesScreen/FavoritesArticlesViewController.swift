@@ -17,11 +17,20 @@ class FavoritesArticlesViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupUI()
+        setupBaseCollectionView()
     }
 }
 
 // MARK: - FavoritesArticlesViewProtocol
 extension FavoritesArticlesViewController: FavoritesArticlesViewProtocol {
     
+}
+
+// MARK: - setup UI
+private extension FavoritesArticlesViewController {
+    
+    private func setupUI() {
+        view.backgroundColor = .white
+    }
 }

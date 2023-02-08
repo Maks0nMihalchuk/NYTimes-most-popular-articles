@@ -17,6 +17,7 @@ class MostEmailedViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         setupBaseCollectionView()
     }
 }
@@ -24,4 +25,12 @@ class MostEmailedViewController: BaseViewController {
 // MARK: - MostEmailedViewProtocol
 extension MostEmailedViewController: MostEmailedViewProtocol {
     
+}
+
+// MARK: - setup UI
+private extension MostEmailedViewController {
+    
+    private func setupUI() {
+        view.backgroundColor = .white
+    }
 }

@@ -17,11 +17,20 @@ class MostViewedViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUI()
+        setupBaseCollectionView()
     }
 }
 
 // MARK: - MostViewedViewProtocol
 extension MostViewedViewController: MostViewedViewProtocol {
     
+}
+
+// MARK: - setup UI
+private extension MostViewedViewController {
+    
+    private func setupUI() {
+        view.backgroundColor = .white
+    }
 }

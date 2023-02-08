@@ -27,14 +27,9 @@
 		D7BE41802993F05100892779 /* MostSharedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE417F2993F05100892779 /* MostSharedViewController.swift */; };
 		D7BE41822993F07700892779 /* MostSharedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41812993F07700892779 /* MostSharedPresenter.swift */; };
 		D7BE41842993F0E100892779 /* MostSharedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41832993F0E100892779 /* MostSharedModel.swift */; };
-		D7BE41862993F37C00892779 /* MostEmailed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BE41852993F37C00892779 /* MostEmailed.storyboard */; };
-		D7BE41882993F3AD00892779 /* MostShared.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BE41872993F3AD00892779 /* MostShared.storyboard */; };
-		D7BE418A2993F44F00892779 /* StoryboardBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41892993F44F00892779 /* StoryboardBuilder.swift */; };
 		D7BE418C2993F54100892779 /* MostViewedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE418B2993F54100892779 /* MostViewedViewController.swift */; };
 		D7BE418E2993F58A00892779 /* MostViewedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE418D2993F58A00892779 /* MostViewedPresenter.swift */; };
 		D7BE41902993F5AE00892779 /* MostViewedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE418F2993F5AE00892779 /* MostViewedModel.swift */; };
-		D7BE41922993F8BF00892779 /* MostViewed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BE41912993F8BF00892779 /* MostViewed.storyboard */; };
-		D7BE41952993FA8800892779 /* FavoritesArticles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BE41942993FA8800892779 /* FavoritesArticles.storyboard */; };
 		D7BE41972993FAA500892779 /* FavoritesArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41962993FAA500892779 /* FavoritesArticlesViewController.swift */; };
 		D7BE41992993FD0200892779 /* FavoritesArticlesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41982993FD0200892779 /* FavoritesArticlesPresenter.swift */; };
 		D7BE419B2993FDBF00892779 /* FavoritesArticlesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE419A2993FDBF00892779 /* FavoritesArticlesModel.swift */; };
@@ -69,14 +64,9 @@
 		D7BE417F2993F05100892779 /* MostSharedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostSharedViewController.swift; sourceTree = "<group>"; };
 		D7BE41812993F07700892779 /* MostSharedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostSharedPresenter.swift; sourceTree = "<group>"; };
 		D7BE41832993F0E100892779 /* MostSharedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostSharedModel.swift; sourceTree = "<group>"; };
-		D7BE41852993F37C00892779 /* MostEmailed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MostEmailed.storyboard; sourceTree = "<group>"; };
-		D7BE41872993F3AD00892779 /* MostShared.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MostShared.storyboard; sourceTree = "<group>"; };
-		D7BE41892993F44F00892779 /* StoryboardBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardBuilder.swift; sourceTree = "<group>"; };
 		D7BE418B2993F54100892779 /* MostViewedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostViewedViewController.swift; sourceTree = "<group>"; };
 		D7BE418D2993F58A00892779 /* MostViewedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostViewedPresenter.swift; sourceTree = "<group>"; };
 		D7BE418F2993F5AE00892779 /* MostViewedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostViewedModel.swift; sourceTree = "<group>"; };
-		D7BE41912993F8BF00892779 /* MostViewed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MostViewed.storyboard; sourceTree = "<group>"; };
-		D7BE41942993FA8800892779 /* FavoritesArticles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesArticles.storyboard; sourceTree = "<group>"; };
 		D7BE41962993FAA500892779 /* FavoritesArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesArticlesViewController.swift; sourceTree = "<group>"; };
 		D7BE41982993FD0200892779 /* FavoritesArticlesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesArticlesPresenter.swift; sourceTree = "<group>"; };
 		D7BE419A2993FDBF00892779 /* FavoritesArticlesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesArticlesModel.swift; sourceTree = "<group>"; };
@@ -219,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				D7BE416B2993DB9300892779 /* LoadingView.swift */,
-				D7BE41892993F44F00892779 /* StoryboardBuilder.swift */,
 				D7BE41A629941BFF00892779 /* ReusableCell.swift */,
 				D7BE416D2993DD7300892779 /* Extensions */,
 			);
@@ -241,7 +230,6 @@
 				D7BE41752993E5E600892779 /* MostEmailedViewController.swift */,
 				D7BE41792993E66E00892779 /* MostEmailedPresenter.swift */,
 				D7BE41772993E61F00892779 /* MostEmailedModel.swift */,
-				D7BE41852993F37C00892779 /* MostEmailed.storyboard */,
 			);
 			path = MostEmailedScreen;
 			sourceTree = "<group>";
@@ -252,7 +240,6 @@
 				D7BE417F2993F05100892779 /* MostSharedViewController.swift */,
 				D7BE41812993F07700892779 /* MostSharedPresenter.swift */,
 				D7BE41832993F0E100892779 /* MostSharedModel.swift */,
-				D7BE41872993F3AD00892779 /* MostShared.storyboard */,
 			);
 			path = MostSharedScreen;
 			sourceTree = "<group>";
@@ -263,7 +250,6 @@
 				D7BE418B2993F54100892779 /* MostViewedViewController.swift */,
 				D7BE418D2993F58A00892779 /* MostViewedPresenter.swift */,
 				D7BE418F2993F5AE00892779 /* MostViewedModel.swift */,
-				D7BE41912993F8BF00892779 /* MostViewed.storyboard */,
 			);
 			path = MostViewedScreen;
 			sourceTree = "<group>";
@@ -274,7 +260,6 @@
 				D7BE41962993FAA500892779 /* FavoritesArticlesViewController.swift */,
 				D7BE41982993FD0200892779 /* FavoritesArticlesPresenter.swift */,
 				D7BE419A2993FDBF00892779 /* FavoritesArticlesModel.swift */,
-				D7BE41942993FA8800892779 /* FavoritesArticles.storyboard */,
 			);
 			path = FavoritesArticlesScreen;
 			sourceTree = "<group>";
@@ -362,13 +347,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7BE41862993F37C00892779 /* MostEmailed.storyboard in Resources */,
 				D7BE41A529941BB200892779 /* ArticleCollectionViewCell.xib in Resources */,
-				D7BE41922993F8BF00892779 /* MostViewed.storyboard in Resources */,
 				D7BE41452993BD2F00892779 /* LaunchScreen.storyboard in Resources */,
-				D7BE41882993F3AD00892779 /* MostShared.storyboard in Resources */,
 				D7BE419D2994040500892779 /* Assets.xcassets in Resources */,
-				D7BE41952993FA8800892779 /* FavoritesArticles.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +362,6 @@
 			files = (
 				D7BE41802993F05100892779 /* MostSharedViewController.swift in Sources */,
 				D7BE41652993C5E300892779 /* MainViewControllerFactory.swift in Sources */,
-				D7BE418A2993F44F00892779 /* StoryboardBuilder.swift in Sources */,
 				D7BE417A2993E66E00892779 /* MostEmailedPresenter.swift in Sources */,
 				D7BE41782993E61F00892779 /* MostEmailedModel.swift in Sources */,
 				D7BE41842993F0E100892779 /* MostSharedModel.swift in Sources */,
