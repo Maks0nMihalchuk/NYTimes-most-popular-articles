@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D7BE41392993BD2E00892779 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41382993BD2E00892779 /* AppDelegate.swift */; };
 		D7BE413B2993BD2E00892779 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE413A2993BD2E00892779 /* SceneDelegate.swift */; };
-		D7BE41422993BD2F00892779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7BE41412993BD2F00892779 /* Assets.xcassets */; };
 		D7BE41452993BD2F00892779 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BE41432993BD2F00892779 /* LaunchScreen.storyboard */; };
 		D7BE41522993BF1D00892779 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41512993BF1D00892779 /* AppConfiguration.swift */; };
 		D7BE41572993C13600892779 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41562993C13600892779 /* Coordinator.swift */; };
@@ -39,13 +38,13 @@
 		D7BE41972993FAA500892779 /* FavoritesArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41962993FAA500892779 /* FavoritesArticlesViewController.swift */; };
 		D7BE41992993FD0200892779 /* FavoritesArticlesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41982993FD0200892779 /* FavoritesArticlesPresenter.swift */; };
 		D7BE419B2993FDBF00892779 /* FavoritesArticlesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE419A2993FDBF00892779 /* FavoritesArticlesModel.swift */; };
+		D7BE419D2994040500892779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7BE419C2994040500892779 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D7BE41352993BD2E00892779 /* NYTimes-most-popular-articles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NYTimes-most-popular-articles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7BE41382993BD2E00892779 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7BE413A2993BD2E00892779 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D7BE41412993BD2F00892779 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7BE41442993BD2F00892779 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7BE41462993BD2F00892779 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7BE41512993BF1D00892779 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
@@ -76,6 +75,7 @@
 		D7BE41962993FAA500892779 /* FavoritesArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesArticlesViewController.swift; sourceTree = "<group>"; };
 		D7BE41982993FD0200892779 /* FavoritesArticlesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesArticlesPresenter.swift; sourceTree = "<group>"; };
 		D7BE419A2993FDBF00892779 /* FavoritesArticlesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesArticlesModel.swift; sourceTree = "<group>"; };
+		D7BE419C2994040500892779 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +132,7 @@
 		D7BE414E2993BE7F00892779 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D7BE41412993BD2F00892779 /* Assets.xcassets */,
+				D7BE419C2994040500892779 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -327,7 +327,7 @@
 				D7BE41922993F8BF00892779 /* MostViewed.storyboard in Resources */,
 				D7BE41452993BD2F00892779 /* LaunchScreen.storyboard in Resources */,
 				D7BE41882993F3AD00892779 /* MostShared.storyboard in Resources */,
-				D7BE41422993BD2F00892779 /* Assets.xcassets in Resources */,
+				D7BE419D2994040500892779 /* Assets.xcassets in Resources */,
 				D7BE41952993FA8800892779 /* FavoritesArticles.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
