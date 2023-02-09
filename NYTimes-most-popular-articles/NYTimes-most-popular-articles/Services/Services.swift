@@ -6,7 +6,17 @@
 //
 
 import Foundation
+import Alamofire
 
 final class Services {
     
+    // MARK: - private
+    private lazy var networker = Networker()
+    private lazy var articleMapper = MapArticleModelService()
+
+    // MARK: - Public
+    lazy var articleProvider: ArticleProviderProtocol = ArticleProvider(
+        network: networker,
+        articleMapper: articleMapper
+    )
 }

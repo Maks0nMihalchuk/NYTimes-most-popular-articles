@@ -9,6 +9,9 @@ import UIKit
 
 protocol MPArticlesViewProtocol: AnyObject {
     
+    func showLoading()
+    func hideLoading()
+    func reloadView()
 }
 
 class MPArticlesViewController: BaseViewController {
@@ -20,12 +23,24 @@ class MPArticlesViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         setupBaseTableView()
+        presenter?.sendDataRequest()
     }
 }
 
 // MARK: - MPArticlesViewProtocol
 extension MPArticlesViewController: MPArticlesViewProtocol {
     
+    func showLoading() {
+        showLoadingView()
+    }
+    
+    func hideLoading() {
+        hideLoadingView()
+    }
+    
+    func reloadView() {
+        baseTableView.reloadData()
+    }
 }
 
 // MARK: - setup UI
