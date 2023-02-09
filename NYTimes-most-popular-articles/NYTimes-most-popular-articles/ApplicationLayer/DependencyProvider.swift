@@ -55,6 +55,7 @@ extension DependencyProvider: MainViewControllerFactory {
         let viewController = MPArticlesViewController()
         let tabBarImage = UIImage(systemName: "list.bullet.rectangle")
         let selectedTabBarImage = UIImage(systemName: "list.bullet.rectangle.fill")
+        viewController.title = "Most Emailed".uppercased()
         viewController.tabBarItem = .init(title: "Most emailed",
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
@@ -70,6 +71,7 @@ extension DependencyProvider: MainViewControllerFactory {
         let viewController = MPArticlesViewController()
         let tabBarImage = UIImage(systemName: "square.and.arrow.up")
         let selectedTabBarImage = UIImage(systemName: "square.and.arrow.up.fill")
+        viewController.title = "Most Shared".uppercased()
         viewController.tabBarItem = .init(title: "Most shared",
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
@@ -85,6 +87,7 @@ extension DependencyProvider: MainViewControllerFactory {
         let tabBarImage = UIImage(systemName: "viewfinder.circle")
         let selectedTabBarImage = UIImage(systemName: "viewfinder.circle.fill")
         let viewController = MPArticlesViewController()
+        viewController.title = "Most Viewed".uppercased()
         viewController.tabBarItem = .init(title: "Most viewed",
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
