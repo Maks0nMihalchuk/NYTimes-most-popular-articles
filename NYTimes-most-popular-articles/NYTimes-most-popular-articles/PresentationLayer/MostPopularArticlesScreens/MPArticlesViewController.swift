@@ -12,6 +12,7 @@ protocol MPArticlesViewProtocol: AnyObject {
     func showLoading()
     func hideLoading()
     func reloadView()
+    func showError(with message: String)
 }
 
 class MPArticlesViewController: BaseViewController {
@@ -40,6 +41,10 @@ extension MPArticlesViewController: MPArticlesViewProtocol {
     
     func reloadView() {
         baseTableView.reloadData()
+    }
+    
+    func showError(with message: String) {
+        UIAlertController.showErrorAlert(message: message)
     }
 }
 

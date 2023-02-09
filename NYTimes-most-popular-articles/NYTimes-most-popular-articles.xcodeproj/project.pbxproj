@@ -47,6 +47,7 @@
 		D7BE41DD299540EC00892779 /* ArticleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41DC299540EC00892779 /* ArticleProvider.swift */; };
 		D7BE41E42995758100892779 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41E32995758100892779 /* ArticleModel.swift */; };
 		D7BE41E7299578DA00892779 /* MappingModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41E6299578DA00892779 /* MappingModelService.swift */; };
+		D7BE41E929958D5300892779 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41E829958D5300892779 /* UIAlertController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		D7BE41DC299540EC00892779 /* ArticleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleProvider.swift; sourceTree = "<group>"; };
 		D7BE41E32995758100892779 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		D7BE41E6299578DA00892779 /* MappingModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingModelService.swift; sourceTree = "<group>"; };
+		D7BE41E829958D5300892779 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			children = (
 				D7BE41702993DDCD00892779 /* UIApplication+extension.swift */,
 				D7BE41C5299517C300892779 /* UITableView+Extension.swift */,
+				D7BE41E829958D5300892779 /* UIAlertController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				D7BE41A729941BFF00892779 /* ReusableCell.swift in Sources */,
 				D7BE41B42995093800892779 /* MPArticlesPresenter.swift in Sources */,
 				D7BE41682993D54000892779 /* BaseViewController.swift in Sources */,
+				D7BE41E929958D5300892779 /* UIAlertController+Extension.swift in Sources */,
 				D7BE41902993F5AE00892779 /* MostViewedModel.swift in Sources */,
 				D7BE41972993FAA500892779 /* FavoritesArticlesViewController.swift in Sources */,
 				D7BE415F2993C2AE00892779 /* CoordinatorFactoryProtocol.swift in Sources */,

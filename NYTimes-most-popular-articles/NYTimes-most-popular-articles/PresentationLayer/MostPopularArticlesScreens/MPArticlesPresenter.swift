@@ -47,7 +47,7 @@ class MPArticlesPresenter {
                     self.articles = articles
                     self.view?.reloadView()
                 case .failure(let error):
-                    break
+                    self.view?.showError(with: error.description)
                 }
             }
         }
