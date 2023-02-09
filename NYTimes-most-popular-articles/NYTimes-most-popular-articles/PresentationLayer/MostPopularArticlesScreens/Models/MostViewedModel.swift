@@ -16,7 +16,7 @@ class MostViewedModel: MPArticlesModelProtocol {
     }
     
     func getArticles(completion: @escaping Articles) {
-        articleProvider.getArticles(with: .emailed) { result in
+        articleProvider.getArticles(with: .viewed) { result in
             completion(result)
         }
     }
