@@ -90,7 +90,7 @@ extension DependencyProvider: MainViewControllerFactory {
                             selectedImage: UIImage(systemName: model.selectedImageName))
     }
     
-    func getScreenTitle(by model: ScreenModel) -> String {
+    private func getScreenTitle(by model: ScreenModel) -> String {
         return model.title.uppercased()
     }
 }
