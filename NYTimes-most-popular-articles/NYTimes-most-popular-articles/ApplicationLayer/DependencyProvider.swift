@@ -51,43 +51,43 @@ extension DependencyProvider: MainViewControllerFactory {
         return UITabBarController()
     }
     
-    func buildMostEmailedVC(service: Services) -> MostEmailedViewController {
-        let viewController = MostEmailedViewController()
+    func buildMostEmailedVC(service: Services) -> MPArticlesViewController {
+        let viewController = MPArticlesViewController()
         let tabBarImage = UIImage(systemName: "list.bullet.rectangle")
         let selectedTabBarImage = UIImage(systemName: "list.bullet.rectangle.fill")
         viewController.tabBarItem = .init(title: "Most emailed",
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
         let model = MostEmailedModel()
-        let presenter = MostEmailedPresenter(viewController, model: model)
+        let presenter = MPArticlesPresenter(viewController, model: model)
         viewController.presenter = presenter
         
         return viewController
     }
     
-    func buildMostSharedVC(service: Services) -> MostSharedViewController {
-        let viewController = MostSharedViewController()
+    func buildMostSharedVC(service: Services) -> MPArticlesViewController {
+        let viewController = MPArticlesViewController()
         let tabBarImage = UIImage(systemName: "square.and.arrow.up")
         let selectedTabBarImage = UIImage(systemName: "square.and.arrow.up.fill")
         viewController.tabBarItem = .init(title: "Most shared",
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
         let model = MostSharedModel()
-        let presenter = MostSharedPresenter(viewController, model: model)
+        let presenter = MPArticlesPresenter(viewController, model: model)
         viewController.presenter = presenter
         
         return viewController
     }
     
-    func buildMostViewedVC(service: Services) -> MostViewedViewController {
+    func buildMostViewedVC(service: Services) -> MPArticlesViewController {
         let tabBarImage = UIImage(systemName: "viewfinder.circle")
         let selectedTabBarImage = UIImage(systemName: "viewfinder.circle.fill")
-        let viewController = MostViewedViewController()
+        let viewController = MPArticlesViewController()
         viewController.tabBarItem = .init(title: "Most viewed",
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
         let model = MostViewedModel()
-        let presenter = MostViewedPresenter(viewController, model: model)
+        let presenter = MPArticlesPresenter(viewController, model: model)
         viewController.presenter = presenter
         
         return viewController

@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol MostViewedModelProtocol {
-    
-}
-
-class MostViewedModel: MostViewedModelProtocol {
+class MostViewedModel: MPArticlesModelProtocol {
     
 }
