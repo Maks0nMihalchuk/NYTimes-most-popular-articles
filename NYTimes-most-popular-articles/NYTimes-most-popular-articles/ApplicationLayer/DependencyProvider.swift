@@ -61,6 +61,7 @@ extension DependencyProvider: MainViewControllerFactory {
         let model = MostEmailedModel()
         let presenter = MPArticlesPresenter(viewController, model: model)
         viewController.presenter = presenter
+        viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
         
         return viewController
     }
@@ -75,6 +76,7 @@ extension DependencyProvider: MainViewControllerFactory {
         let model = MostSharedModel()
         let presenter = MPArticlesPresenter(viewController, model: model)
         viewController.presenter = presenter
+        viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
         
         return viewController
     }
@@ -89,6 +91,7 @@ extension DependencyProvider: MainViewControllerFactory {
         let model = MostViewedModel()
         let presenter = MPArticlesPresenter(viewController, model: model)
         viewController.presenter = presenter
+        viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
         
         return viewController
     }

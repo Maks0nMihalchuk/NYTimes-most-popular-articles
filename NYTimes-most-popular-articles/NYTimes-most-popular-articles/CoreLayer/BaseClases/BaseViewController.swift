@@ -9,7 +9,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
     
-    var baseCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
+    var baseTableView = UITableView(frame: .zero, style: .plain)
 
     // MARK: - Controller Lifecycle
     override func viewDidLoad() {
@@ -17,17 +17,17 @@ class BaseViewController: UIViewController {
 
     }
     
-    // MARK: - setup baseCollectionView
-    func setupBaseCollectionView() {
-        view.addSubview(baseCollectionView)
+    // MARK: - setup layout baseTableView
+    func setupLayoutBaseTableView() {
+        view.addSubview(baseTableView)
         
-        baseCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        baseTableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            baseCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            baseCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            baseCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            baseCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            baseTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            baseTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            baseTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            baseTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
