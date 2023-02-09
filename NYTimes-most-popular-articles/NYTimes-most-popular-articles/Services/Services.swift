@@ -6,7 +6,13 @@
 //
 
 import Foundation
+import Alamofire
 
 final class Services {
     
+    // MARK: - private
+    private lazy var networker = Networker()
+
+    // MARK: - Public
+    lazy var articleProvider: ArticleProviderProtocol = ArticleProvider(network: networker)
 }

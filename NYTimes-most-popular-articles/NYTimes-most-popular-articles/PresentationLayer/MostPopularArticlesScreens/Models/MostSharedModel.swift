@@ -9,5 +9,15 @@ import Foundation
 
 class MostSharedModel: MPArticlesModelProtocol {
     
+    private let articleProvider: ArticleProviderProtocol
     
+    init(articleProvider: ArticleProviderProtocol) {
+        self.articleProvider = articleProvider
+    }
+    
+    func getArticles(completion: @escaping Articles) {
+        articleProvider.getArticles(with: .emailed) { result in
+            completion(result)
+        }
+    }
 }

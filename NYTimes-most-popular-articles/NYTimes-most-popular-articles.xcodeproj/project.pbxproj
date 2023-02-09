@@ -37,6 +37,14 @@
 		D7BE41C12995150600892779 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41BF2995150600892779 /* ArticleTableViewCell.swift */; };
 		D7BE41C22995150600892779 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7BE41C02995150600892779 /* ArticleTableViewCell.xib */; };
 		D7BE41C6299517C300892779 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41C5299517C300892779 /* UITableView+Extension.swift */; };
+		D7BE41C929951F5A00892779 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D7BE41C829951F5A00892779 /* Alamofire */; };
+		D7BE41CC2995205900892779 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41CB2995205900892779 /* Networker.swift */; };
+		D7BE41CE2995225100892779 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41CD2995225100892779 /* EndPointType.swift */; };
+		D7BE41D12995236100892779 /* MPArticlesRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41D02995236100892779 /* MPArticlesRequester.swift */; };
+		D7BE41D32995255F00892779 /* MPArticlesPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41D22995255F00892779 /* MPArticlesPeriod.swift */; };
+		D7BE41D5299536E900892779 /* RequestHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41D4299536E900892779 /* RequestHeaders.swift */; };
+		D7BE41D729953B4F00892779 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41D629953B4F00892779 /* ErrorMessage.swift */; };
+		D7BE41DD299540EC00892779 /* ArticleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41DC299540EC00892779 /* ArticleProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +80,13 @@
 		D7BE41BF2995150600892779 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		D7BE41C02995150600892779 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		D7BE41C5299517C300892779 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		D7BE41CB2995205900892779 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
+		D7BE41CD2995225100892779 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		D7BE41D02995236100892779 /* MPArticlesRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPArticlesRequester.swift; sourceTree = "<group>"; };
+		D7BE41D22995255F00892779 /* MPArticlesPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPArticlesPeriod.swift; sourceTree = "<group>"; };
+		D7BE41D4299536E900892779 /* RequestHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeaders.swift; sourceTree = "<group>"; };
+		D7BE41D629953B4F00892779 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		D7BE41DC299540EC00892779 /* ArticleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7BE41C929951F5A00892779 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				D7BE415C2993C26500892779 /* Services.swift */,
+				D7BE41CA29951FB800892779 /* Networking */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -283,6 +300,60 @@
 			path = MPTableViewDataSource;
 			sourceTree = "<group>";
 		};
+		D7BE41CA29951FB800892779 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE41CB2995205900892779 /* Networker.swift */,
+				D7BE41CD2995225100892779 /* EndPointType.swift */,
+				D7BE41DE29956C1400892779 /* SupportingFiles */,
+				D7BE41DF29956C3300892779 /* NetworkError */,
+				D7BE41E129956CB700892779 /* Providers */,
+				D7BE41CF2995234900892779 /* Requester */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D7BE41CF2995234900892779 /* Requester */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE41D02995236100892779 /* MPArticlesRequester.swift */,
+			);
+			path = Requester;
+			sourceTree = "<group>";
+		};
+		D7BE41DB2995409900892779 /* ArticleProvider */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE41DC299540EC00892779 /* ArticleProvider.swift */,
+			);
+			path = ArticleProvider;
+			sourceTree = "<group>";
+		};
+		D7BE41DE29956C1400892779 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE41D4299536E900892779 /* RequestHeaders.swift */,
+				D7BE41D22995255F00892779 /* MPArticlesPeriod.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		D7BE41DF29956C3300892779 /* NetworkError */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE41D629953B4F00892779 /* ErrorMessage.swift */,
+			);
+			path = NetworkError;
+			sourceTree = "<group>";
+		};
+		D7BE41E129956CB700892779 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE41DB2995409900892779 /* ArticleProvider */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -299,6 +370,9 @@
 			dependencies = (
 			);
 			name = "NYTimes-most-popular-articles";
+			packageProductDependencies = (
+				D7BE41C829951F5A00892779 /* Alamofire */,
+			);
 			productName = "NYTimes-most-popular-articles";
 			productReference = D7BE41352993BD2E00892779 /* NYTimes-most-popular-articles.app */;
 			productType = "com.apple.product-type.application";
@@ -327,6 +401,9 @@
 				Base,
 			);
 			mainGroup = D7BE412C2993BD2E00892779;
+			packageReferences = (
+				D7BE41C729951F5A00892779 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = D7BE41362993BD2E00892779 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -365,11 +442,18 @@
 				D7BE41972993FAA500892779 /* FavoritesArticlesViewController.swift in Sources */,
 				D7BE415F2993C2AE00892779 /* CoordinatorFactoryProtocol.swift in Sources */,
 				D7BE41712993DDCE00892779 /* UIApplication+extension.swift in Sources */,
+				D7BE41DD299540EC00892779 /* ArticleProvider.swift in Sources */,
 				D7BE419B2993FDBF00892779 /* FavoritesArticlesModel.swift in Sources */,
 				D7BE41C12995150600892779 /* ArticleTableViewCell.swift in Sources */,
+				D7BE41D729953B4F00892779 /* ErrorMessage.swift in Sources */,
 				D7BE41BE2995148300892779 /* MPTableViewDataSource.swift in Sources */,
+				D7BE41D32995255F00892779 /* MPArticlesPeriod.swift in Sources */,
 				D7BE41B72995099800892779 /* MPArticlesModelProtocol.swift in Sources */,
+				D7BE41CC2995205900892779 /* Networker.swift in Sources */,
+				D7BE41CE2995225100892779 /* EndPointType.swift in Sources */,
 				D7BE41632993C55000892779 /* MainCoordinator.swift in Sources */,
+				D7BE41D12995236100892779 /* MPArticlesRequester.swift in Sources */,
+				D7BE41D5299536E900892779 /* RequestHeaders.swift in Sources */,
 				D7BE41992993FD0200892779 /* FavoritesArticlesPresenter.swift in Sources */,
 				D7BE416C2993DB9300892779 /* LoadingView.swift in Sources */,
 				D7BE41B22995092100892779 /* MPArticlesViewController.swift in Sources */,
@@ -586,6 +670,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D7BE41C729951F5A00892779 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D7BE41C829951F5A00892779 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D7BE41C729951F5A00892779 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D7BE412D2993BD2E00892779 /* Project object */;
 }

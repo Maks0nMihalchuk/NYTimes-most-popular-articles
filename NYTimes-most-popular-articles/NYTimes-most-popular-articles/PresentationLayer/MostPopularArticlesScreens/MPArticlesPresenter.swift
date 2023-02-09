@@ -9,6 +9,7 @@ import Foundation
 
 protocol MPArticlesPresenterProtocol {
     
+    func sendDataRequest()
 }
  
 class MPArticlesPresenter {
@@ -21,6 +22,21 @@ class MPArticlesPresenter {
         self.view = view
         self.model = model
     }
+    
+    func sendDataRequest() {
+        model.getArticles { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let articles):
+                    break
+                case .failure(let error):
+                    break
+                }
+            }
+        }
+    }
+    
+    
 }
 
 // MARK: - MPArticlesPresenterProtocol

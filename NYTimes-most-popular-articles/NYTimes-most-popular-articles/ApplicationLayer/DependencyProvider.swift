@@ -58,7 +58,7 @@ extension DependencyProvider: MainViewControllerFactory {
         viewController.tabBarItem = .init(title: "Most emailed",
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
-        let model = MostEmailedModel()
+        let model = MostEmailedModel(articleProvider: services.articleProvider)
         let presenter = MPArticlesPresenter(viewController, model: model)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
@@ -73,7 +73,7 @@ extension DependencyProvider: MainViewControllerFactory {
         viewController.tabBarItem = .init(title: "Most shared",
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
-        let model = MostSharedModel()
+        let model = MostSharedModel(articleProvider: services.articleProvider)
         let presenter = MPArticlesPresenter(viewController, model: model)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
@@ -88,7 +88,7 @@ extension DependencyProvider: MainViewControllerFactory {
         viewController.tabBarItem = .init(title: "Most viewed",
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
-        let model = MostViewedModel()
+        let model = MostViewedModel(articleProvider: services.articleProvider)
         let presenter = MPArticlesPresenter(viewController, model: model)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
