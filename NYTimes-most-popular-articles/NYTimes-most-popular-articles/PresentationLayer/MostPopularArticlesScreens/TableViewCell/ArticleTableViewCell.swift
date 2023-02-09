@@ -16,6 +16,6 @@ class ArticleTableViewCell: UITableViewCell {
     
     func configureCell(with articleTitle: String, author: String) {
         articleTitleLabel.text = articleTitle
-        articleAuthorLabel.text = "Author(s): \(author)"
+        articleAuthorLabel.text = author
     }
 }
