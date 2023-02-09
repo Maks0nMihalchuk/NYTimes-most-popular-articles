@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias Articles = (Result<ArticleResponse, NetworkError>) -> Void
+typealias Articles = (Result<[ArticleModel], NetworkError>) -> Void
 
 protocol ArticleProviderProtocol {
     
@@ -18,9 +18,11 @@ protocol ArticleProviderProtocol {
 class ArticleProvider {
 
     private let network: Networker
+    private let articleMapper: MapArticleModelServiceProtocol
     
-    init(network: Networker) {
+    init(network: Networker, articleMapper: MapArticleModelServiceProtocol) {
         self.network = network
+        self.articleMapper = articleMapper
     }
 }
 
@@ -28,8 +30,15 @@ extension ArticleProvider: ArticleProviderProtocol {
     
     func getArticles(with type: MPArticlesRequester,
                      completion: @escaping Articles) {
-        network.call(type: type) { result in
-            completion(result)
+        network.call(type: type) { [unowned self] (result: Result<ArticleResponse, NetworkError>) in
+            switch result {
+            case .success(let articlesResponce):
+                let articles = articleMapper
+                    .mapArticleResponceModelToArticleModel(responseModel: articlesResponce)
+                completion(.success(articles))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 }

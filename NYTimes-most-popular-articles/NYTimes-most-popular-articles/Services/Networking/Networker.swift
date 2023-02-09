@@ -18,7 +18,7 @@ enum StatusCodes {
 
 class Networker {
     
-    var sessionManager: Session
+    private var sessionManager: Session
     
     // MARK: - Public method
     

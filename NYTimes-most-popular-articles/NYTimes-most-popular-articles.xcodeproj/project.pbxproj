@@ -45,6 +45,8 @@
 		D7BE41D5299536E900892779 /* RequestHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41D4299536E900892779 /* RequestHeaders.swift */; };
 		D7BE41D729953B4F00892779 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41D629953B4F00892779 /* ErrorMessage.swift */; };
 		D7BE41DD299540EC00892779 /* ArticleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41DC299540EC00892779 /* ArticleProvider.swift */; };
+		D7BE41E42995758100892779 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41E32995758100892779 /* ArticleModel.swift */; };
+		D7BE41E7299578DA00892779 /* MappingModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41E6299578DA00892779 /* MappingModelService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,8 @@
 		D7BE41D4299536E900892779 /* RequestHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeaders.swift; sourceTree = "<group>"; };
 		D7BE41D629953B4F00892779 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		D7BE41DC299540EC00892779 /* ArticleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleProvider.swift; sourceTree = "<group>"; };
+		D7BE41E32995758100892779 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
+		D7BE41E6299578DA00892779 /* MappingModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingModelService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				D7BE415C2993C26500892779 /* Services.swift */,
+				D7BE41E52995785900892779 /* MapingModelSerive */,
 				D7BE41CA29951FB800892779 /* Networking */,
 			);
 			path = Services;
@@ -256,6 +261,7 @@
 		D7BE41AC299422F100892779 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D7BE41E22995756700892779 /* DataModel */,
 				D7BE41AD2994230400892779 /* Response */,
 			);
 			path = Models;
@@ -352,6 +358,22 @@
 				D7BE41DB2995409900892779 /* ArticleProvider */,
 			);
 			path = Providers;
+			sourceTree = "<group>";
+		};
+		D7BE41E22995756700892779 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE41E32995758100892779 /* ArticleModel.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		D7BE41E52995785900892779 /* MapingModelSerive */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE41E6299578DA00892779 /* MappingModelService.swift */,
+			);
+			path = MapingModelSerive;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,10 +475,12 @@
 				D7BE41CE2995225100892779 /* EndPointType.swift in Sources */,
 				D7BE41632993C55000892779 /* MainCoordinator.swift in Sources */,
 				D7BE41D12995236100892779 /* MPArticlesRequester.swift in Sources */,
+				D7BE41E7299578DA00892779 /* MappingModelService.swift in Sources */,
 				D7BE41D5299536E900892779 /* RequestHeaders.swift in Sources */,
 				D7BE41992993FD0200892779 /* FavoritesArticlesPresenter.swift in Sources */,
 				D7BE416C2993DB9300892779 /* LoadingView.swift in Sources */,
 				D7BE41B22995092100892779 /* MPArticlesViewController.swift in Sources */,
+				D7BE41E42995758100892779 /* ArticleModel.swift in Sources */,
 				D7BE41572993C13600892779 /* Coordinator.swift in Sources */,
 				D7BE415D2993C26500892779 /* Services.swift in Sources */,
 				D7BE41AF2994232F00892779 /* ArticleResponse.swift in Sources */,
