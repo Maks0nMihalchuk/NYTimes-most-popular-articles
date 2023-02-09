@@ -7,6 +7,9 @@
 
 import UIKit
 
+typealias VoidBlock = (() -> Void)
+typealias BlockWith<T> = ((T) -> Void)
+
 protocol Coordinator: AnyObject {
     
     var childCoordinators: [Coordinator] { get set }

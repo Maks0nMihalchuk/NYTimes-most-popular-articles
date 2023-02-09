@@ -10,8 +10,13 @@ import UIKit
 protocol MainViewControllerFactory {
     
     func buildTabBarController() -> UITabBarController
-    func buildMostEmailedVC(service: Services) -> MPArticlesViewController
-    func buildMostSharedVC(service: Services) -> MPArticlesViewController
-    func buildMostViewedVC(service: Services) -> MPArticlesViewController
+    func buildMostEmailedVC(service: Services,
+                            routes: MPArticlesPresenterRoutes) -> MPArticlesViewController
+    func buildMostSharedVC(service: Services,
+                           routes: MPArticlesPresenterRoutes) -> MPArticlesViewController
+    func buildMostViewedVC(service: Services,
+                           routes: MPArticlesPresenterRoutes) -> MPArticlesViewController
     func buildFavoritesArticlesVC(service: Services) -> FavoritesArticlesViewController
+    
+    func buildArticleDetailsVC(services: Services) -> ArticleDetailsViewController
 }

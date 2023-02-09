@@ -51,7 +51,7 @@ extension DependencyProvider: MainViewControllerFactory {
         return UITabBarController()
     }
     
-    func buildMostEmailedVC(service: Services) -> MPArticlesViewController {
+    func buildMostEmailedVC(service: Services, routes: MPArticlesPresenterRoutes) -> MPArticlesViewController {
         let viewController = MPArticlesViewController()
         let tabBarImage = UIImage(systemName: "list.bullet.rectangle")
         let selectedTabBarImage = UIImage(systemName: "list.bullet.rectangle.fill")
@@ -60,14 +60,14 @@ extension DependencyProvider: MainViewControllerFactory {
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
         let model = MostEmailedModel(articleProvider: services.articleProvider)
-        let presenter = MPArticlesPresenter(viewController, model: model)
+        let presenter = MPArticlesPresenter(viewController, model: model, routes: routes)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
         
         return viewController
     }
     
-    func buildMostSharedVC(service: Services) -> MPArticlesViewController {
+    func buildMostSharedVC(service: Services, routes: MPArticlesPresenterRoutes) -> MPArticlesViewController {
         let viewController = MPArticlesViewController()
         let tabBarImage = UIImage(systemName: "square.and.arrow.up")
         let selectedTabBarImage = UIImage(systemName: "square.and.arrow.up.fill")
@@ -76,14 +76,14 @@ extension DependencyProvider: MainViewControllerFactory {
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
         let model = MostSharedModel(articleProvider: services.articleProvider)
-        let presenter = MPArticlesPresenter(viewController, model: model)
+        let presenter = MPArticlesPresenter(viewController, model: model, routes: routes)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
         
         return viewController
     }
     
-    func buildMostViewedVC(service: Services) -> MPArticlesViewController {
+    func buildMostViewedVC(service: Services, routes: MPArticlesPresenterRoutes) -> MPArticlesViewController {
         let tabBarImage = UIImage(systemName: "viewfinder.circle")
         let selectedTabBarImage = UIImage(systemName: "viewfinder.circle.fill")
         let viewController = MPArticlesViewController()
@@ -92,7 +92,7 @@ extension DependencyProvider: MainViewControllerFactory {
                                           image: tabBarImage,
                                           selectedImage: selectedTabBarImage)
         let model = MostViewedModel(articleProvider: services.articleProvider)
-        let presenter = MPArticlesPresenter(viewController, model: model)
+        let presenter = MPArticlesPresenter(viewController, model: model, routes: routes)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
         
@@ -110,6 +110,14 @@ extension DependencyProvider: MainViewControllerFactory {
         let presenter = FavoritesArticlesPresenter(viewController, model: model)
         viewController.presenter = presenter
         
+        return viewController
+    }
+    
+    func buildArticleDetailsVC(services: Services) -> ArticleDetailsViewController {
+        let viewController = ArticleDetailsViewController()
+        let model = ArticleDetailsModel()
+        let presenter = ArticleDetailsPresenter(viewController, model: model)
+        viewController.presenter = presenter
         return viewController
     }
 }
