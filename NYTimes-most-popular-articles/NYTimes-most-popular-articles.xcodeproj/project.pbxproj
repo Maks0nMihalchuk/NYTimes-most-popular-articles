@@ -51,6 +51,7 @@
 		D7BE41EC299599B400892779 /* ArticleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41EB299599B400892779 /* ArticleDetailsViewController.swift */; };
 		D7BE41EE299599FD00892779 /* ArticleDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41ED299599FD00892779 /* ArticleDetailsPresenter.swift */; };
 		D7BE41F029959A3100892779 /* ArticleDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41EF29959A3100892779 /* ArticleDetailsModel.swift */; };
+		D7BE41F22995AD1C00892779 /* ScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41F12995AD1C00892779 /* ScreenModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		D7BE41EB299599B400892779 /* ArticleDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewController.swift; sourceTree = "<group>"; };
 		D7BE41ED299599FD00892779 /* ArticleDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsPresenter.swift; sourceTree = "<group>"; };
 		D7BE41EF29959A3100892779 /* ArticleDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsModel.swift; sourceTree = "<group>"; };
+		D7BE41F12995AD1C00892779 /* ScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				D7BE41E32995758100892779 /* ArticleModel.swift */,
+				D7BE41F12995AD1C00892779 /* ScreenModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				D7BE41E929958D5300892779 /* UIAlertController+Extension.swift in Sources */,
 				D7BE41902993F5AE00892779 /* MostViewedModel.swift in Sources */,
 				D7BE41EE299599FD00892779 /* ArticleDetailsPresenter.swift in Sources */,
+				D7BE41F22995AD1C00892779 /* ScreenModel.swift in Sources */,
 				D7BE41972993FAA500892779 /* FavoritesArticlesViewController.swift in Sources */,
 				D7BE415F2993C2AE00892779 /* CoordinatorFactoryProtocol.swift in Sources */,
 				D7BE41712993DDCE00892779 /* UIApplication+extension.swift in Sources */,
