@@ -7,40 +7,59 @@
 
 import Foundation
 
-protocol MapArticleModelServiceProtocol {
+protocol MapArticleServiceProtocol {
     func mapArticleResponceModelToArticleModel(responseModel: ArticleResponse) -> [ArticleModel] 
 }
 
-class MapArticleModelService {
+class MapArticleService {
     
     // MARK: - Private method
     
     private func mapMediaResponseTo(data: [MediaResponse]) -> ArticleMediaModel {
         return data.map { [unowned self] media in
-            let metadata = self.mapMediaMetaDataResponceTo(data: media.mediaMetadata)
-            return ArticleMediaModel(copyright: media.copyright, mediaMetadata: metadata)
-        }.first ?? ArticleMediaModel(copyright: "", mediaMetadata: [])
+            
+            let metadataURL = self.mapMediaMetaDataResponceTo(data: media.mediaMetadata)
+            return ArticleMediaModel(copyright: media.copyright,
+                                     url: metadataURL,
+                                     mediaData: nil)
+        }.first ?? ArticleMediaModel(copyright: "", url: "", mediaData: nil)
     }
     
-    private func mapMediaMetaDataResponceTo(data: [MediaMetadataResponse]) -> [ArticleMediaMetadataModel] {
-        return data.map { ArticleMediaMetadataModel(url: $0.url) }
+    private func mapMediaMetaDataResponceTo(data: [MediaMetadataResponse]) -> String {
+        return data.compactMap { $0.url }.last ?? ""
+    }
+    
+    private func convertDateToAnotherFormat(date: String, fromFormate: DateFormats,
+                                            toFormate: DateFormats) -> String {
+        return date.convertDateString(
+            fromDateFormat: fromFormate.value,
+            toDateFormat: toFormate.value
+        ) ?? ""
     }
 }
 
 // MARK: - MapArticleModelServiceProtocol
-extension MapArticleModelService: MapArticleModelServiceProtocol {
+extension MapArticleService: MapArticleServiceProtocol {
     
     func mapArticleResponceModelToArticleModel(responseModel: ArticleResponse) -> [ArticleModel] {
         let articleResponseResult = responseModel.results
 
-        return articleResponseResult.map { article in
+        return articleResponseResult.map { [unowned self] article in
             let articleMedia = mapMediaResponseTo(data: article.media)
+            let publishedDate = convertDateToAnotherFormat(
+                date: article.publishedDate,
+                fromFormate: .publishedBackendData,
+                toFormate: .publishedData)
+            let updateDate = convertDateToAnotherFormat(
+                date: article.updated,
+                fromFormate: .updateBackendData,
+                toFormate: .updateData)
             return ArticleModel(isFavorite: false,
                                 url: article.url,
                                 id: article.id,
                                 source: article.source,
-                                publishedDate: article.publishedDate,
-                                updated: article.updated,
+                                publishedDate: publishedDate,
+                                updated: updateDate,
                                 section: article.section,
                                 subSection: article.subSection,
                                 byline: article.byline,

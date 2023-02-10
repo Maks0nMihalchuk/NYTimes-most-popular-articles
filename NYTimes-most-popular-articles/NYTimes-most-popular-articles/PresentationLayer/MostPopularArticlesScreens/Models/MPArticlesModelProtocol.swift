@@ -9,6 +9,6 @@ import Foundation
 
 protocol MPArticlesModelProtocol {
     
-    func getArticles(completion: @escaping Articles)
+    func getArticles(completion: @escaping (Result<[ArticleModel] ,NetworkError>) -> Void)
 }
 

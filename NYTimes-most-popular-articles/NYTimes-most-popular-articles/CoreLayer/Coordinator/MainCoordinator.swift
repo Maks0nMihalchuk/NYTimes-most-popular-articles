@@ -15,6 +15,10 @@ final class MainCoordinator: Coordinator {
     var childCoordinators: [Coordinator]
     var rootController: UINavigationController
     
+    private var mostEmailedViewController: UINavigationController?
+    private var mostSharedViewController: UINavigationController?
+    private var mostViewedViewController: UINavigationController?
+    
     // MARK: - Public method
     func start() {
         showTabBarController()
@@ -22,6 +26,7 @@ final class MainCoordinator: Coordinator {
     
     // MARK: - Private method
     
+    // MARK: - show ViewControllers
     private func showTabBarController() {
         let controller = factory.buildTabBarController()
         let controllers = [getMostEmailedViewController(), getMostSharedViewController(), getMostViewedViewController(), getFavoritesArticlesViewController()]
@@ -29,22 +34,57 @@ final class MainCoordinator: Coordinator {
         self.setRoot(controller, hideBar: true)
     }
     
+    private func showArticleDetailsViewController(for article: ArticleModel,
+                                                  from: UINavigationController?) {
+        let controller = factory.buildArticleDetailsVC(services: services,
+                                                       article: article)
+        from?.pushViewController(controller, animated: true)
+    }
+    
+    // MARK: - get ViewControllers for tabBar
     private func getMostEmailedViewController() -> UINavigationController {
-        let controller = factory.buildMostEmailedVC(service: services)
-        return UINavigationController(rootViewController: controller)
+        let routes = MPArticlesPresenterRoutes { [unowned self] article in
+            self.showArticleDetailsViewController(for: article,
+                                                  from: mostEmailedViewController)
+        }
+        
+        let controller = factory.buildMostEmailedVC(service: services,
+                                                    routes: routes)
+        let navController = UINavigationController(rootViewController: controller)
+        self.mostEmailedViewController = navController
+        
+        return navController
     }
     
     private func getMostSharedViewController() -> UINavigationController {
-        let controller = factory.buildMostSharedVC(service: services)
-        return UINavigationController(rootViewController: controller)
+        let routes = MPArticlesPresenterRoutes { [unowned self] article in
+            self.showArticleDetailsViewController(for: article,
+                                                  from: mostSharedViewController)
+        }
+        
+        let controller = factory.buildMostSharedVC(service: services,
+                                                   routes: routes)
+        let navController = UINavigationController(rootViewController: controller)
+        self.mostSharedViewController = navController
+        
+        return navController
     }
     
     private func getMostViewedViewController() -> UINavigationController {
-        let controller = factory.buildMostViewedVC(service: services)
-        return UINavigationController(rootViewController: controller)
+        let routes = MPArticlesPresenterRoutes { [unowned self] article in
+            self.showArticleDetailsViewController(for: article,
+                                                  from: mostViewedViewController)
+        }
+        
+        let controller = factory.buildMostViewedVC(service: services,
+                                                   routes: routes)
+        let navController = UINavigationController(rootViewController: controller)
+        self.mostViewedViewController = navController
+        
+        return navController
     }
     
-    func getFavoritesArticlesViewController() -> UINavigationController {
+    private func getFavoritesArticlesViewController() -> UINavigationController {
         let controller = factory.buildFavoritesArticlesVC(service: services)
         return UINavigationController(rootViewController: controller)
     }

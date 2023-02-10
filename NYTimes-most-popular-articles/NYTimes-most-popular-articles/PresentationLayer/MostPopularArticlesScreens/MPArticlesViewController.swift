@@ -63,5 +63,6 @@ private extension MPArticlesViewController {
         setupLayoutBaseTableView()
         baseTableView.regiserCellByClass(cellClass: ArticleTableViewCell.self)
         baseTableView.dataSource = dataSource
+        baseTableView.delegate = dataSource
     }
 }

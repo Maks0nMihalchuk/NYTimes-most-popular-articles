@@ -10,14 +10,31 @@ import Foundation
 class MostEmailedModel: MPArticlesModelProtocol {
     
     private let articleProvider: ArticleProviderProtocol
+    private let mapper: MapArticleServiceProtocol
     
-    init(articleProvider: ArticleProviderProtocol) {
+    init(articleProvider: ArticleProviderProtocol, mapper: MapArticleServiceProtocol) {
         self.articleProvider = articleProvider
+        self.mapper = mapper
     }
     
-    func getArticles(completion: @escaping Articles) {
-        articleProvider.getArticles(with: .emailed) { result in
-            completion(result)
+    func getArticles(completion: @escaping (Result<[ArticleModel] ,NetworkError>) -> Void) {
+        articleProvider.getArticles(with: .emailed) { [weak self] result in
+            guard let self = self else {
+                completion(.failure(.clientError))
+                return
+            }
+            
+            switch result {
+            case .success(let articleResponse):
+                let articles = self.mapper
+                    .mapArticleResponceModelToArticleModel(
+                        responseModel: articleResponse
+                    )
+                completion(.success(articles))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+            
         }
     }
 }

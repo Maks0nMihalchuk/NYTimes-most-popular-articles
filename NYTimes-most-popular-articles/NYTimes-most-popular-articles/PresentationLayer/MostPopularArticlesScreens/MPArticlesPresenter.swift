@@ -7,9 +7,14 @@
 
 import Foundation
 
+struct MPArticlesPresenterRoutes {
+    var onArticleDetails: BlockWith<ArticleModel>
+}
+
 protocol MPArticlesPresenterProtocol {
     
     func sendDataRequest()
+    func showArticleDetails(by index: Int)
     func getNumberOfArticles() -> Int
     func getArticlesByIndex(_ index: Int) -> ArticleModel
 }
@@ -17,14 +22,23 @@ protocol MPArticlesPresenterProtocol {
 class MPArticlesPresenter {
     
     private let model: MPArticlesModelProtocol
+    private var routes: MPArticlesPresenterRoutes
     private var articles: [ArticleModel]
     
     weak var view: MPArticlesViewProtocol?
     
-    init(_ view: MPArticlesViewProtocol?, model: MPArticlesModelProtocol) {
+    init(_ view: MPArticlesViewProtocol?,
+         model: MPArticlesModelProtocol,
+         routes: MPArticlesPresenterRoutes) {
         self.view = view
         self.model = model
+        self.routes = routes
         self.articles = []
+    }
+    
+    func showArticleDetails(by index: Int) {
+        let article = articles[index]
+        routes.onArticleDetails(article)
     }
     
     func getNumberOfArticles() -> Int {
