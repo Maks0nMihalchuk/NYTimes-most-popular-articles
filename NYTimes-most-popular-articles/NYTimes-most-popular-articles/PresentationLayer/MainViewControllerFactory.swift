@@ -76,7 +76,8 @@ extension DependencyProvider: MainViewControllerFactory {
     }
     
     func buildArticleDetailsVC(services: Services) -> ArticleDetailsViewController {
-        let viewController = ArticleDetailsViewController()
+        let viewController = ArticleDetailsViewController
+            .instantiate(from: .ArticleDetails)
         let model = ArticleDetailsModel()
         let presenter = ArticleDetailsPresenter(viewController, model: model)
         viewController.presenter = presenter
