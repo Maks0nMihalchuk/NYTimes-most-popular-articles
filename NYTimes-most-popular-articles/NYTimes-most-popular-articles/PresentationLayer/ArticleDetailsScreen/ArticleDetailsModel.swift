@@ -32,6 +32,12 @@ class ArticleDetailsModel: ArticleDetailsModelProtocol {
     func downloadArticleImage(
         completion: @escaping (Result<Data, NetworkError>) -> Void) {
             let mediaURL = article.media.url
+            
+            if mediaURL.isEmpty {
+                completion(.success(Data()))
+                return
+            }
+            
         articleProvider
                 .downloadArticleImage( with: .download(mediaURL)) { [weak self] result in
             guard let self = self else {

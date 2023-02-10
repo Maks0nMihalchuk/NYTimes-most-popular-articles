@@ -131,7 +131,7 @@ extension ArticleDetailsViewController: ArticleDetailsViewProtocol {
     }
     
     func showImage(with data: Data?) {
-        guard let data = data else { return }
+        guard let data = data, !data.isEmpty else { return }
         
         UIView.animate(withDuration: Constants.duration) { [weak self] in
             guard let self = self else { return }
