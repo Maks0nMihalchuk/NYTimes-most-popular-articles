@@ -18,7 +18,8 @@ protocol MainViewControllerFactory {
                            routes: MPArticlesPresenterRoutes) -> MPArticlesViewController
     func buildFavoritesArticlesVC(service: Services) -> FavoritesArticlesViewController
     
-    func buildArticleDetailsVC(services: Services) -> ArticleDetailsViewController
+    func buildArticleDetailsVC(services: Services,
+                               article: ArticleModel) -> ArticleDetailsViewController
 }
 
 // MARK: - MainViewControllerFactory
@@ -32,7 +33,7 @@ extension DependencyProvider: MainViewControllerFactory {
         let viewController = MPArticlesViewController()
         viewController.title = self.getScreenTitle(by: .mostEmailed)
         viewController.tabBarItem = self.getTabBarItem(by: .mostEmailed)
-        let model = MostEmailedModel(articleProvider: service.articleProvider)
+        let model = MostEmailedModel(articleProvider: service.articleProvider, mapper: service.mapper)
         let presenter = MPArticlesPresenter(viewController, model: model, routes: routes)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
@@ -44,7 +45,8 @@ extension DependencyProvider: MainViewControllerFactory {
         let viewController = MPArticlesViewController()
         viewController.title = self.getScreenTitle(by: .mostShared)
         viewController.tabBarItem = self.getTabBarItem(by: .mostShared)
-        let model = MostSharedModel(articleProvider: service.articleProvider)
+        let model = MostSharedModel(articleProvider: service.articleProvider,
+                                    mapper: service.mapper)
         let presenter = MPArticlesPresenter(viewController, model: model, routes: routes)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
@@ -56,7 +58,8 @@ extension DependencyProvider: MainViewControllerFactory {
         let viewController = MPArticlesViewController()
         viewController.title = self.getScreenTitle(by: .mostViewed)
         viewController.tabBarItem = self.getTabBarItem(by: .mostViewed)
-        let model = MostViewedModel(articleProvider: service.articleProvider)
+        let model = MostViewedModel(articleProvider: service.articleProvider,
+                                    mapper: service.mapper)
         let presenter = MPArticlesPresenter(viewController, model: model, routes: routes)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
@@ -75,10 +78,12 @@ extension DependencyProvider: MainViewControllerFactory {
         return viewController
     }
     
-    func buildArticleDetailsVC(services: Services) -> ArticleDetailsViewController {
+    func buildArticleDetailsVC(services: Services, article: ArticleModel) -> ArticleDetailsViewController {
         let viewController = ArticleDetailsViewController
             .instantiate(from: .ArticleDetails)
-        let model = ArticleDetailsModel()
+        let model = ArticleDetailsModel(articleProvider: services.articleProvider,
+                                        fileService: services.fileService,
+                                        article: article)
         let presenter = ArticleDetailsPresenter(viewController, model: model)
         viewController.presenter = presenter
         return viewController

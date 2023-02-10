@@ -36,7 +36,8 @@ final class MainCoordinator: Coordinator {
     
     private func showArticleDetailsViewController(for article: ArticleModel,
                                                   from: UINavigationController?) {
-        let controller = factory.buildArticleDetailsVC(services: services)
+        let controller = factory.buildArticleDetailsVC(services: services,
+                                                       article: article)
         from?.pushViewController(controller, animated: true)
     }
     

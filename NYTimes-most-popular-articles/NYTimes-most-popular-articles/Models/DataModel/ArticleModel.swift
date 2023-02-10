@@ -26,10 +26,6 @@ struct ArticleModel {
 
 struct ArticleMediaModel {
     var copyright: String
-    var mediaMetadata: [ArticleMediaMetadataModel]
-    
-}
-
-struct ArticleMediaMetadataModel {
     var url: String
+    var mediaData: Data?
 }

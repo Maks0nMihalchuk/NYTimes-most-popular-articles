@@ -56,6 +56,8 @@
 		D7BE41F62995B28100892779 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41F52995B28100892779 /* UIStoryboard+Extension.swift */; };
 		D7BE41FE2996773200892779 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41FD2996773200892779 /* UIView+Extension.swift */; };
 		D7BE4200299687DD00892779 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE41FF299687DD00892779 /* String+Extension.swift */; };
+		D7BE42032996A94100892779 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE42022996A94100892779 /* FileService.swift */; };
+		D7BE42052996AECA00892779 /* ArticleMediaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE42042996AECA00892779 /* ArticleMediaResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +111,8 @@
 		D7BE41F52995B28100892779 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		D7BE41FD2996773200892779 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D7BE41FF299687DD00892779 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		D7BE42022996A94100892779 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
+		D7BE42042996AECA00892779 /* ArticleMediaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleMediaResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				D7BE415C2993C26500892779 /* Services.swift */,
+				D7BE42012996A93200892779 /* FileService */,
 				D7BE41E52995785900892779 /* MapingModelSerive */,
 				D7BE41CA29951FB800892779 /* Networking */,
 			);
@@ -294,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				D7BE41AE2994232F00892779 /* ArticleResponse.swift */,
+				D7BE42042996AECA00892779 /* ArticleMediaResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -303,9 +309,9 @@
 			children = (
 				D7BE41B12995092100892779 /* MPArticlesViewController.swift */,
 				D7BE41B32995093800892779 /* MPArticlesPresenter.swift */,
+				D7BE41B52995097F00892779 /* Models */,
 				D7BE41BA29950C4E00892779 /* MPTableViewDataSource */,
 				D7BE41A129941B7200892779 /* TableViewCell */,
-				D7BE41B52995097F00892779 /* Models */,
 			);
 			path = MostPopularArticlesScreens;
 			sourceTree = "<group>";
@@ -411,6 +417,14 @@
 			path = ArticleDetailsScreen;
 			sourceTree = "<group>";
 		};
+		D7BE42012996A93200892779 /* FileService */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE42022996A94100892779 /* FileService.swift */,
+			);
+			path = FileService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -493,6 +507,7 @@
 				D7BE41782993E61F00892779 /* MostEmailedModel.swift in Sources */,
 				D7BE41FE2996773200892779 /* UIView+Extension.swift in Sources */,
 				D7BE41842993F0E100892779 /* MostSharedModel.swift in Sources */,
+				D7BE42052996AECA00892779 /* ArticleMediaResponse.swift in Sources */,
 				D7BE41392993BD2E00892779 /* AppDelegate.swift in Sources */,
 				D7BE41A729941BFF00892779 /* ReusableCell.swift in Sources */,
 				D7BE41B42995093800892779 /* MPArticlesPresenter.swift in Sources */,
@@ -504,6 +519,7 @@
 				D7BE4200299687DD00892779 /* String+Extension.swift in Sources */,
 				D7BE41972993FAA500892779 /* FavoritesArticlesViewController.swift in Sources */,
 				D7BE415F2993C2AE00892779 /* CoordinatorFactoryProtocol.swift in Sources */,
+				D7BE42032996A94100892779 /* FileService.swift in Sources */,
 				D7BE41712993DDCE00892779 /* UIApplication+extension.swift in Sources */,
 				D7BE41DD299540EC00892779 /* ArticleProvider.swift in Sources */,
 				D7BE419B2993FDBF00892779 /* FavoritesArticlesModel.swift in Sources */,

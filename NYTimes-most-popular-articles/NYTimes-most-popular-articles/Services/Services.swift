@@ -12,11 +12,13 @@ final class Services {
     
     // MARK: - private
     private lazy var networker = Networker()
-    private lazy var articleMapper = MapArticleModelService()
+    private lazy var articleMapper = MapArticleService()
 
     // MARK: - Public
     lazy var articleProvider: ArticleProviderProtocol = ArticleProvider(
-        network: networker,
-        articleMapper: articleMapper
+        network: networker
     )
+    
+    lazy var mapper: MapArticleServiceProtocol = MapArticleService()
+    lazy var fileService: FileServiceProtocol = FileService()
 }

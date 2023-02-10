@@ -28,7 +28,7 @@ class Networker {
             return
         }
         
-        let request = self.sessionManager.request(urlRequest)
+        let request = self.sessionManager.request(urlRequest).cacheResponse(using: .cache)
         request
             .validate(statusCode: StatusCodes.ok...StatusCodes.created)
             .responseDecodable(of: T.self) { data in
@@ -50,6 +50,36 @@ class Networker {
                     handle(.failure(Networker.errorHandle(with: responseCode)))
                 }
             }
+    }
+    
+    func download<T>(type: EndPointType,
+                     handle: @escaping (Result<T, NetworkError>) -> Void) where T: Decodable {
+        guard let urlRequest = type.urlRequest else {
+            handle(.failure(.canNotBuildRequest))
+            return
+        }
+        
+        let request = self.sessionManager.download(urlRequest).cacheResponse(using: .cache)
+        
+        request.validate().response { response in
+            switch response.result {
+            case .success(let url):
+                guard let result = ArticleMediaResponse(url: url) as? T else {
+                    handle(.failure(.decodingError))
+                    return
+                }
+                handle(.success(result))
+                
+            case .failure(let error):
+                guard let responseCode = error.responseCode else {
+                    handle(.failure(.unspecifiedError))
+                    return
+                }
+                
+                handle(.failure(Networker.errorHandle(with: responseCode)))
+            }
+        }
+           
     }
     
     // MARK: - Static methods

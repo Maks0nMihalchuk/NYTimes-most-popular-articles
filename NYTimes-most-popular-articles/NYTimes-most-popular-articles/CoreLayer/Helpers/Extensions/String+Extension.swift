@@ -8,10 +8,20 @@
 import Foundation
 
 enum DateFormats {
-    static let publishedBackendData = "yyyy-MM-dd"      //"2023-01-19"
-    static let publishedData = "MMM d, yyyy"            // Jan 19, 2023
-    static let updateBackendData = "yyyy-MM-dd HH:mm:ss"// "2023-01-31 18:20:25"
-    static let updateData = "MMM d, yyyy"               // Jan 31, 2023
+    
+    case publishedBackendData   //"2023-01-19"
+    case publishedData          // Jan 19, 2023
+    case updateBackendData      // "2023-01-31 18:20:25"
+    case updateData             // Jan 31, 2023
+    
+    var value: String {
+        switch self {
+        case .publishedBackendData: return "yyyy-MM-dd"
+        case .publishedData: return "MMM d, yyyy"
+        case .updateBackendData: return "yyyy-MM-dd HH:mm:ss"
+        case .updateData: return "MMM d, yyyy"
+        }
+    }
 }
 
 extension String {

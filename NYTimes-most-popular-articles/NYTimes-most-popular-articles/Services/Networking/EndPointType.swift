@@ -33,10 +33,6 @@ protocol EndPointType: RequestBuilder {
 // MARK: - extending EndPointType functionality with URLBuilder
 extension EndPointType {
     
-    var baseURL: String {
-        return AppConfiguration.shared.apiURL
-    }
-    
     func buildRequest() throws -> URLRequest {
         guard var url = URL(string: baseURL) else {
             throw NetworkError.canNotBuildRequest
