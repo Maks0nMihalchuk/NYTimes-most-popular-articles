@@ -14,6 +14,7 @@ protocol FileServiceProtocol {
 
 class FileService: FileServiceProtocol {
     
+    // MARK: - Public method
     func writeFile(file: Data, name: String) {
         let path = self.getDocumentDirectoryURL().appendingPathComponent(name)
         try? file.write(to: path)
@@ -26,6 +27,7 @@ class FileService: FileServiceProtocol {
         return try? Data(contentsOf: fileURL)
     }
     
+    // MARK: - Private method
     private func getDocumentDirectoryURL() -> URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[.zero]
     }
