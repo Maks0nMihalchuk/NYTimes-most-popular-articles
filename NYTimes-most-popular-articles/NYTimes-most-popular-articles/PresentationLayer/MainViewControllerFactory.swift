@@ -16,7 +16,7 @@ protocol MainViewControllerFactory {
                            routes: MPArticlesPresenterRoutes) -> MPArticlesViewController
     func buildMostViewedVC(service: Services,
                            routes: MPArticlesPresenterRoutes) -> MPArticlesViewController
-    func buildFavoritesArticlesVC(service: Services) -> FavoritesArticlesViewController
+    func buildFavoritesArticlesVC(service: Services, routes: FAPresenterRoutes) -> FavoritesArticlesViewController
     
     func buildArticleDetailsVC(services: Services,
                                article: ArticleModel) -> ArticleDetailsViewController
@@ -74,13 +74,14 @@ extension DependencyProvider: MainViewControllerFactory {
         return viewController
     }
     
-    func buildFavoritesArticlesVC(service: Services) -> FavoritesArticlesViewController {
+    func buildFavoritesArticlesVC(service: Services, routes: FAPresenterRoutes) -> FavoritesArticlesViewController {
         let viewController = FavoritesArticlesViewController()
         viewController.title = self.getScreenTitle(by: .favorites)
         viewController.tabBarItem = self.getTabBarItem(by: .favorites)
-        let model = FavoritesArticlesModel()
-        let presenter = FavoritesArticlesPresenter(viewController, model: model)
+        let model = FavoritesArticlesModel(articleDataService: service.articleDataService)
+        let presenter = FavoritesArticlesPresenter(viewController, model: model, routes: routes)
         viewController.presenter = presenter
+        viewController.tableViewDataSource = FATableViewDataSource(presenter: presenter)
         
         return viewController
     }

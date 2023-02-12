@@ -9,8 +9,18 @@ import Foundation
 
 protocol FavoritesArticlesModelProtocol {
     
+    func getAllArticlesFromLocalStorage() -> [ArticleModel]
 }
 
 class FavoritesArticlesModel: FavoritesArticlesModelProtocol {
     
+    private let articleDataService: ArticleDataServiceProtocol
+    
+    init(articleDataService: ArticleDataServiceProtocol) {
+        self.articleDataService = articleDataService
+    }
+    
+    func getAllArticlesFromLocalStorage() -> [ArticleModel] {
+         return articleDataService.getAllArticles()
+    }
 }
