@@ -18,6 +18,7 @@ final class MainCoordinator: Coordinator {
     private var mostEmailedViewController: UINavigationController?
     private var mostSharedViewController: UINavigationController?
     private var mostViewedViewController: UINavigationController?
+    private var favoritesArticleViewController: UINavigationController?
     
     // MARK: - Public method
     func start() {
@@ -85,8 +86,16 @@ final class MainCoordinator: Coordinator {
     }
     
     private func getFavoritesArticlesViewController() -> UINavigationController {
-        let controller = factory.buildFavoritesArticlesVC(service: services)
-        return UINavigationController(rootViewController: controller)
+        let routes = FAPresenterRoutes { [unowned self] article in
+            self.showArticleDetailsViewController(for: article,
+                                                  from: favoritesArticleViewController)
+        }
+        let controller = factory.buildFavoritesArticlesVC(service: services,
+                                                          routes: routes)
+        let navController = UINavigationController(rootViewController: controller)
+        self.favoritesArticleViewController = navController
+
+        return navController
     }
     
     // MARK: - Init
