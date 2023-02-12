@@ -33,7 +33,10 @@ extension DependencyProvider: MainViewControllerFactory {
         let viewController = MPArticlesViewController()
         viewController.title = self.getScreenTitle(by: .mostEmailed)
         viewController.tabBarItem = self.getTabBarItem(by: .mostEmailed)
-        let model = MostEmailedModel(articleProvider: service.articleProvider, mapper: service.mapper)
+        let model = MPArticleModel(articleProvider: service.articleProvider,
+                                   mapper: service.mapper,
+                                   articleDataService: service.articleDataService,
+                                   endPoint: MPArticlesRequester.emailed)
         let presenter = MPArticlesPresenter(viewController, model: model, routes: routes)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
@@ -45,8 +48,10 @@ extension DependencyProvider: MainViewControllerFactory {
         let viewController = MPArticlesViewController()
         viewController.title = self.getScreenTitle(by: .mostShared)
         viewController.tabBarItem = self.getTabBarItem(by: .mostShared)
-        let model = MostSharedModel(articleProvider: service.articleProvider,
-                                    mapper: service.mapper)
+        let model = MPArticleModel(articleProvider: service.articleProvider,
+                                   mapper: service.mapper,
+                                   articleDataService: service.articleDataService,
+                                   endPoint: MPArticlesRequester.shared)
         let presenter = MPArticlesPresenter(viewController, model: model, routes: routes)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
@@ -58,8 +63,10 @@ extension DependencyProvider: MainViewControllerFactory {
         let viewController = MPArticlesViewController()
         viewController.title = self.getScreenTitle(by: .mostViewed)
         viewController.tabBarItem = self.getTabBarItem(by: .mostViewed)
-        let model = MostViewedModel(articleProvider: service.articleProvider,
-                                    mapper: service.mapper)
+        let model = MPArticleModel(articleProvider: service.articleProvider,
+                                   mapper: service.mapper,
+                                   articleDataService: service.articleDataService,
+                                   endPoint: MPArticlesRequester.viewed)
         let presenter = MPArticlesPresenter(viewController, model: model, routes: routes)
         viewController.presenter = presenter
         viewController.tableViewDataSource = MPTableViewDataSource(presenter: presenter)
@@ -82,9 +89,9 @@ extension DependencyProvider: MainViewControllerFactory {
         let viewController = ArticleDetailsViewController
             .instantiate(from: .ArticleDetails)
         let model = ArticleDetailsModel(articleProvider: services.articleProvider,
-                                        fileService: services.fileService,
-                                        article: article)
-        let presenter = ArticleDetailsPresenter(viewController, model: model)
+                                        articleDataService: services.articleDataService,
+                                        fileService: services.fileService)
+        let presenter = ArticleDetailsPresenter(viewController, model: model, article: article)
         viewController.presenter = presenter
         return viewController
     }

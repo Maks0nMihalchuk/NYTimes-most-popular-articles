@@ -21,8 +21,12 @@ class MapArticleService {
             let metadataURL = self.mapMediaMetaDataResponceTo(data: media.mediaMetadata)
             return ArticleMediaModel(copyright: media.copyright,
                                      url: metadataURL,
+                                     imagePath: "",
                                      mediaData: nil)
-        }.first ?? ArticleMediaModel(copyright: "", url: "", mediaData: nil)
+        }.first ?? ArticleMediaModel(copyright: "",
+                                     url: "",
+                                     imagePath: "",
+                                     mediaData: nil)
     }
     
     private func mapMediaMetaDataResponceTo(data: [MediaMetadataResponse]) -> String {
@@ -55,19 +59,18 @@ extension MapArticleService: MapArticleServiceProtocol {
                 fromFormate: .updateBackendData,
                 toFormate: .updateData)
             return ArticleModel(isFavorite: false,
+                                articleID: article.id,
                                 url: article.url,
-                                id: article.id,
-                                source: article.source,
-                                publishedDate: publishedDate,
-                                updated: updateDate,
+                                title: article.title,
+                                byline: article.byline,
+                                abstract: article.abstract,
+                                published: publishedDate,
+                                update: updateDate,
                                 section: article.section,
                                 subSection: article.subSection,
-                                byline: article.byline,
                                 type: article.type,
-                                title: article.title,
-                                abstract: article.abstract,
+                                source: article.source,
                                 media: articleMedia)
-            
         }
     }
 }

@@ -67,11 +67,11 @@ class ArticleDetailsViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         presenter?.getArticleInformation()
-        presenter?.downloadImage()
+        presenter?.getArticleImage()
     }
     
     @IBAction private func didTapAddOrRemoveFromFavoritesButton(_ sender: UIButton) {
-        
+        presenter?.didTapAddOrRemoveFromFavorites()
     }
     
     private func setupUI() {
@@ -99,7 +99,6 @@ extension ArticleDetailsViewController: ArticleDetailsViewProtocol {
         let color: UIColor = isFavorite ? .systemRed : .systemBlue
         addOrRemoveFromFavoritesButton.setTitle(title, for: .normal)
         addOrRemoveFromFavoritesButton.backgroundColor = color
-        
     }
     
     func setImageAuthor(author: String) {
