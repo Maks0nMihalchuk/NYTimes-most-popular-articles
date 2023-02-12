@@ -56,11 +56,11 @@ extension MPArticlesViewController: MPArticlesViewProtocol {
 // MARK: - setup UI
 private extension MPArticlesViewController {
     
-    private func setupUI() {
+    func setupUI() {
         view.backgroundColor = .white
     }
     
-    private func setupBaseTableView() {
+    func setupBaseTableView() {
         guard let dataSource = tableViewDataSource else {
             fatalError("CollectionViewDataSource not found")
         }
