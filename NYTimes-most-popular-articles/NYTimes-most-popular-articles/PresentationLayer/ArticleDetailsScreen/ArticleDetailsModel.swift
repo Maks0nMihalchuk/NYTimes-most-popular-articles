@@ -9,56 +9,66 @@ import Foundation
 
 protocol ArticleDetailsModelProtocol {
     
-    func downloadArticleImage(completion: @escaping (Result<Data, NetworkError>) -> Void)
-    func getArticleInformation() -> ArticleModel
+    func downloadArticleImage(by url: String, completion: @escaping (Result<ArticleMediaModel, NetworkError>) -> Void)
+    func downloadArticleImageFromLocalStorage(by path: String) -> Data?
+    
+    func removeArticleFromFavorites(article: ArticleModel)
+    func addArticleToFavorites(article: ArticleModel)
 }
 
 class ArticleDetailsModel: ArticleDetailsModelProtocol {
     
+    private let articleDataService: ArticleDataServiceProtocol
     private let articleProvider: ArticleProviderProtocol
     private let fileService: FileServiceProtocol
-    private var article: ArticleModel
     
-    init(articleProvider: ArticleProviderProtocol, fileService: FileServiceProtocol, article: ArticleModel) {
+    init(articleProvider: ArticleProviderProtocol,
+         articleDataService: ArticleDataServiceProtocol,
+         fileService: FileServiceProtocol) {
         self.articleProvider = articleProvider
+        self.articleDataService = articleDataService
         self.fileService = fileService
-        self.article = article
     }
     
-    func getArticleInformation() -> ArticleModel {
-        return article
+    func removeArticleFromFavorites(article: ArticleModel) {
+        articleDataService.deleteArticle(by: article.articleID)
     }
     
-    func downloadArticleImage(
-        completion: @escaping (Result<Data, NetworkError>) -> Void) {
-            let mediaURL = article.media.url
-            
-            if mediaURL.isEmpty {
-                completion(.success(Data()))
-                return
-            }
-            
-        articleProvider
-                .downloadArticleImage( with: .download(mediaURL)) { [weak self] result in
+    func addArticleToFavorites(article: ArticleModel) {
+        articleDataService.writeArticle(newArticle: article)
+    }
+    
+    func downloadArticleImageFromLocalStorage(by path: String) -> Data? {
+        let imageData = fileService.getFile(by: path)
+        return imageData
+    }
+    
+    func downloadArticleImage(by url: String, completion: @escaping (Result<ArticleMediaModel, NetworkError>) -> Void) {
+        if url.isEmpty {
+            completion(.success(ArticleMediaModel(copyright: "", url: "", imagePath: "", mediaData: Data())))
+            return
+        }
+        
+        articleProvider.downloadArticleImage(with: .download(url)) { [weak self] result in
             guard let self = self else {
                 completion(.failure(.clientError))
                 return
             }
             
             switch result {
-            case .success(let data):
-                
+            case .success(let response):
                 guard
-                    let dataURL = data.url,
-                    let fileName = URL(string: self.article.media.url)?.lastPathComponent,
+                    let dataURL = response.url,
+                    let fileName = URL(string: url)?.lastPathComponent,
                     let fileData = try? Data(contentsOf: dataURL)
                 else {
                     completion(.failure(.decodingError))
                     return
                 }
-
+                
                 self.fileService.writeFile(file: fileData, name: fileName)
-                completion(.success(fileData))
+                completion(.success(ArticleMediaModel(copyright: "", url: "", imagePath: fileName, mediaData: fileData)))
+                
             case .failure(let error):
                 completion(.failure(error))
             }

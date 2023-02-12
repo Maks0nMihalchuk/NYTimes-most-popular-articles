@@ -27,8 +27,7 @@ extension MPTableViewDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCellBy(cellClass: ArticleTableViewCell.self, indexPath: indexPath)
         let article = presenter.getArticlesByIndex(indexPath.row)
-        cell.configureCell(with: article.title, author: article.byline)
-
+        cell.configureCell(with: article.title, author: article.byline, isFavorite: article.isFavorite)
         return  cell
     }
 }

@@ -17,6 +17,7 @@ protocol MPArticlesPresenterProtocol {
     func showArticleDetails(by index: Int)
     func getNumberOfArticles() -> Int
     func getArticlesByIndex(_ index: Int) -> ArticleModel
+    func syncDataWithLocalStorage()
 }
  
 class MPArticlesPresenter {
@@ -49,6 +50,12 @@ class MPArticlesPresenter {
         return articles[index]
     }
     
+    func syncDataWithLocalStorage() {
+        let synchronizedData = model.syncDataWithLocalStorage(networkArticles: articles)
+        self.articles = synchronizedData
+        view?.reloadView()
+    }
+    
     func sendDataRequest() {
         view?.showLoading()
         model.getArticles { [weak self] result in
@@ -59,6 +66,7 @@ class MPArticlesPresenter {
                 switch result {
                 case .success(let articles):
                     self.articles = articles
+                    self.syncDataWithLocalStorage()
                     self.view?.reloadView()
                 case .failure(let error):
                     self.view?.showError(with: error.description)
@@ -66,8 +74,6 @@ class MPArticlesPresenter {
             }
         }
     }
-    
-    
 }
 
 // MARK: - MPArticlesPresenterProtocol

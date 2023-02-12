@@ -26,6 +26,11 @@ class MPArticlesViewController: BaseViewController {
         setupBaseTableView()
         presenter?.sendDataRequest()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.syncDataWithLocalStorage()
+    }
 }
 
 // MARK: - MPArticlesViewProtocol
