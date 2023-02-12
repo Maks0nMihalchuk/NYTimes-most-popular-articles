@@ -30,6 +30,7 @@ class ArticleDetailsViewController: BaseViewController {
         static let buttonCornerRadius: CGFloat = 10
         static let duration: CGFloat = 0.3
         static let fullAlpa: CGFloat = 1
+        static let buttonTitleSize: CGFloat = 20
         static let isNotFavoritesText = "Add to Favorites"
         static let isFavoritesText = "Remove from Favorites"
     }
@@ -97,7 +98,10 @@ extension ArticleDetailsViewController: ArticleDetailsViewProtocol {
     func getScreenState(isFavorite: Bool) {
         let title = isFavorite ? Constants.isFavoritesText : Constants.isNotFavoritesText
         let color: UIColor = isFavorite ? .systemRed : .systemBlue
-        addOrRemoveFromFavoritesButton.setTitle(title, for: .normal)
+        let font = UIFont.systemFont(ofSize: Constants.buttonTitleSize, weight: .semibold)
+        let attributedTitle = NSAttributedString(string: title,
+                                                 attributes: [.font: font])
+        addOrRemoveFromFavoritesButton.setAttributedTitle(attributedTitle, for: .normal)
         addOrRemoveFromFavoritesButton.backgroundColor = color
     }
     
