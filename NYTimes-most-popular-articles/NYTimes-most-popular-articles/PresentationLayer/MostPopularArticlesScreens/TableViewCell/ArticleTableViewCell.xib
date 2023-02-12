@@ -17,44 +17,43 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="a3o-bM-QzV">
-                        <rect key="frame" x="20" y="8" width="280" height="52"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5AT-fy-yQV">
-                                <rect key="frame" x="0.0" y="0.0" width="280" height="23"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Article title " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGa-g1-7rg">
-                                        <rect key="frame" x="0.0" y="0.0" width="254.66666666666666" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O6F-2C-c2g">
-                                        <rect key="frame" x="264.66666666666669" y="1.6666666666666643" width="15.333333333333314" height="19.000000000000004"/>
-                                        <imageReference key="image" image="star.fill" catalog="system" symbolScale="small" renderingMode="hierarchical-single">
-                                            <hierarchicalColors>
-                                                <color systemColor="systemYellowColor"/>
-                                                <color systemColor="secondaryLabelColor"/>
-                                                <color systemColor="tertiaryLabelColor"/>
-                                            </hierarchicalColors>
-                                        </imageReference>
-                                    </imageView>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article author" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3Z-zE-BIZ">
-                                <rect key="frame" x="0.0" y="33" width="280" height="19"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Article title " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGa-g1-7rg">
+                        <rect key="frame" x="20" y="8" width="269" height="25"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article author" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3Z-zE-BIZ">
+                        <rect key="frame" x="30" y="43" width="270" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O6F-2C-c2g">
+                        <rect key="frame" x="289" y="9.6666666666666625" width="21" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="21" id="73P-uA-yqo"/>
+                            <constraint firstAttribute="height" constant="21" id="NGw-87-eLZ"/>
+                        </constraints>
+                        <imageReference key="image" image="star.fill" catalog="system" symbolScale="small" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemYellowColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="a3o-bM-QzV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="5og-wY-H9g"/>
-                    <constraint firstAttribute="bottom" secondItem="a3o-bM-QzV" secondAttribute="bottom" constant="8" id="75C-zD-e6j"/>
-                    <constraint firstItem="a3o-bM-QzV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="EpW-Be-O28"/>
-                    <constraint firstAttribute="trailing" secondItem="a3o-bM-QzV" secondAttribute="trailing" constant="20" id="hHm-Vb-uoo"/>
+                    <constraint firstItem="O6F-2C-c2g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="4E1-fX-u2j"/>
+                    <constraint firstAttribute="trailing" secondItem="f3Z-zE-BIZ" secondAttribute="trailing" constant="20" id="8Dv-qf-rlx"/>
+                    <constraint firstItem="f3Z-zE-BIZ" firstAttribute="top" secondItem="aGa-g1-7rg" secondAttribute="bottom" constant="10" id="B0D-oc-vDo"/>
+                    <constraint firstAttribute="trailing" secondItem="O6F-2C-c2g" secondAttribute="trailing" constant="10" id="GJI-XH-Yia"/>
+                    <constraint firstItem="f3Z-zE-BIZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="QFF-Rh-Hpp"/>
+                    <constraint firstItem="aGa-g1-7rg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Ru2-5d-sKo"/>
+                    <constraint firstItem="aGa-g1-7rg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="S1U-b8-Scf"/>
+                    <constraint firstItem="O6F-2C-c2g" firstAttribute="leading" secondItem="aGa-g1-7rg" secondAttribute="trailing" id="fNW-su-rTF"/>
+                    <constraint firstAttribute="bottom" secondItem="f3Z-zE-BIZ" secondAttribute="bottom" constant="8" id="nXV-o1-Its"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -62,7 +61,7 @@
                 <outlet property="articleTitleLabel" destination="aGa-g1-7rg" id="9m8-ID-ZpQ"/>
                 <outlet property="favoriteImageView" destination="O6F-2C-c2g" id="LBf-Kp-NHC"/>
             </connections>
-            <point key="canvasLocation" x="123.66412213740458" y="47.535211267605639"/>
+            <point key="canvasLocation" x="123.66412213740458" y="47.183098591549296"/>
         </tableViewCell>
     </objects>
     <resources>
