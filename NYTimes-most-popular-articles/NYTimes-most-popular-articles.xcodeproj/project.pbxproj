@@ -66,6 +66,7 @@
 		D7BE42652999705500892779 /* FavoritesScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE42642999705500892779 /* FavoritesScreenState.swift */; };
 		D7BE4269299976F700892779 /* FATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE4267299976F700892779 /* FATableViewCell.swift */; };
 		D7BE426A299976F700892779 /* FATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7BE4268299976F700892779 /* FATableViewCell.xib */; };
+		D7BE426D299A862500892779 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE426C299A862500892779 /* ReachabilityManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		D7BE42642999705500892779 /* FavoritesScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenState.swift; sourceTree = "<group>"; };
 		D7BE4267299976F700892779 /* FATableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FATableViewCell.swift; sourceTree = "<group>"; };
 		D7BE4268299976F700892779 /* FATableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FATableViewCell.xib; sourceTree = "<group>"; };
+		D7BE426C299A862500892779 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +347,7 @@
 		D7BE41CA29951FB800892779 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				D7BE426B299A85F200892779 /* ReachabilityManager */,
 				D7BE41CB2995205900892779 /* Networker.swift */,
 				D7BE41CD2995225100892779 /* EndPointType.swift */,
 				D7BE41DE29956C1400892779 /* SupportingFiles */,
@@ -473,6 +476,14 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		D7BE426B299A85F200892779 /* ReachabilityManager */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE426C299A862500892779 /* ReachabilityManager.swift */,
+			);
+			path = ReachabilityManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -556,6 +567,7 @@
 				D7BE4260299839FA00892779 /* ArticleMedia+CoreDataProperties.swift in Sources */,
 				D7BE42092996F8D700892779 /* ArticleCoreDataModel.xcdatamodeld in Sources */,
 				D7BE425F299839FA00892779 /* ArticleMedia+CoreDataClass.swift in Sources */,
+				D7BE426D299A862500892779 /* ReachabilityManager.swift in Sources */,
 				D7BE41FE2996773200892779 /* UIView+Extension.swift in Sources */,
 				D7BE425E299839FA00892779 /* Article+CoreDataProperties.swift in Sources */,
 				D7BE42362997F44D00892779 /* ArticleDataService.swift in Sources */,
