@@ -44,10 +44,3 @@ extension DependencyProvider: CoordinatorFactoryProtocol {
     }
 }
 
-// MARK: - MainViewControllerFactory
-extension DependencyProvider: MainViewControllerFactory {
-    
-    func buildTabBarController() -> UITabBarController {
-        return UITabBarController()
-    }
-}

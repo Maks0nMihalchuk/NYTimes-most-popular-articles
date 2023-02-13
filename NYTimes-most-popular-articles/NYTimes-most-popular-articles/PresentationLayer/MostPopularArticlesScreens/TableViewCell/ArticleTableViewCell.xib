@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ArticleTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleTableViewCell" rowHeight="82" id="KGk-i7-Jjw" customClass="ArticleTableViewCell" customModule="NYTimes_most_popular_articles" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Article title " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGa-g1-7rg">
+                        <rect key="frame" x="20" y="8" width="269" height="25"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article author" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3Z-zE-BIZ">
+                        <rect key="frame" x="30" y="43" width="270" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O6F-2C-c2g">
+                        <rect key="frame" x="289" y="9.6666666666666625" width="21" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="21" id="73P-uA-yqo"/>
+                            <constraint firstAttribute="height" constant="21" id="NGw-87-eLZ"/>
+                        </constraints>
+                        <imageReference key="image" image="star.fill" catalog="system" symbolScale="small" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemYellowColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="O6F-2C-c2g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="4E1-fX-u2j"/>
+                    <constraint firstAttribute="trailing" secondItem="f3Z-zE-BIZ" secondAttribute="trailing" constant="20" id="8Dv-qf-rlx"/>
+                    <constraint firstItem="f3Z-zE-BIZ" firstAttribute="top" secondItem="aGa-g1-7rg" secondAttribute="bottom" constant="10" id="B0D-oc-vDo"/>
+                    <constraint firstAttribute="trailing" secondItem="O6F-2C-c2g" secondAttribute="trailing" constant="10" id="GJI-XH-Yia"/>
+                    <constraint firstItem="f3Z-zE-BIZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="QFF-Rh-Hpp"/>
+                    <constraint firstItem="aGa-g1-7rg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Ru2-5d-sKo"/>
+                    <constraint firstItem="aGa-g1-7rg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="S1U-b8-Scf"/>
+                    <constraint firstItem="O6F-2C-c2g" firstAttribute="leading" secondItem="aGa-g1-7rg" secondAttribute="trailing" id="fNW-su-rTF"/>
+                    <constraint firstAttribute="bottom" secondItem="f3Z-zE-BIZ" secondAttribute="bottom" constant="8" id="nXV-o1-Its"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="articleAuthorLabel" destination="f3Z-zE-BIZ" id="bFP-D5-Oc0"/>
+                <outlet property="articleTitleLabel" destination="aGa-g1-7rg" id="9m8-ID-ZpQ"/>
+                <outlet property="favoriteImageView" destination="O6F-2C-c2g" id="LBf-Kp-NHC"/>
+            </connections>
+            <point key="canvasLocation" x="123.66412213740458" y="47.183098591549296"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
