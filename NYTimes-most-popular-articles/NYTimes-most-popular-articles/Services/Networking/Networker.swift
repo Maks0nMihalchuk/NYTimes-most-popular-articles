@@ -19,10 +19,16 @@ enum StatusCodes {
 class Networker {
     
     private var sessionManager: Session
+    private var reachability: ReachabilityManagerProtocol
     
     // MARK: - Public method
     
     func call<T>(type: EndPointType, handle: @escaping (Result<T, NetworkError>) -> Void) where T: Decodable {
+        guard reachability.isInternetConnectionAvailable else {
+            handle(.failure(.reachabilityError))
+            return
+        }
+        
         guard let urlRequest = type.urlRequest else {
             handle(.failure(.canNotBuildRequest))
             return
@@ -54,6 +60,11 @@ class Networker {
     
     func download<T>(type: EndPointType,
                      handle: @escaping (Result<T, NetworkError>) -> Void) where T: Decodable {
+        guard reachability.isInternetConnectionAvailable else {
+            handle(.failure(.reachabilityError))
+            return
+        }
+        
         guard let urlRequest = type.urlRequest else {
             handle(.failure(.canNotBuildRequest))
             return
@@ -117,8 +128,9 @@ class Networker {
     }
     
     // MARK: - Init
-    init(sessionManager: Session = .default) {
+    init(sessionManager: Session = .default, reachability: ReachabilityManagerProtocol = ReachabilityManager.shared) {
         self.sessionManager = sessionManager
+        self.reachability = reachability
     }
     
 }
