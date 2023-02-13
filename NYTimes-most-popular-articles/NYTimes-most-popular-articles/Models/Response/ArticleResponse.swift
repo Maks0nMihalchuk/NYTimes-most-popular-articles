@@ -23,10 +23,6 @@ struct ArticleResponseResult: Decodable {
     var type: String
     var title: String
     var abstract: String
-//    var desFacet: [String]
-//    var orgFacet: [String]
-//    var perFacet: [String]
-//    var geoFacet: [String]
     var media: [MediaResponse]
     
     enum CodingKeys: String, CodingKey {
@@ -34,10 +30,6 @@ struct ArticleResponseResult: Decodable {
         case byline, type, title, abstract, media
         case publishedDate = "published_date"
         case subSection = "subsection"
-//        case desFacet = "des_facet"
-//        case orgFacet = "org_facet"
-//        case perFacet = "per_facet"
-//        case geoFacet = "geo_facet"
     }
 }
 

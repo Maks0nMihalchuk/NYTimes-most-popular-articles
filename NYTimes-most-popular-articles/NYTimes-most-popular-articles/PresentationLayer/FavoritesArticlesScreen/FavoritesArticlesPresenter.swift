@@ -19,7 +19,7 @@ protocol FavoritesArticlesPresenterProtocol {
     func checkIfListOfFavoritesIsEmpty()
 }
 
-class FavoritesArticlesPresenter: FavoritesArticlesPresenterProtocol {
+class FavoritesArticlesPresenter {
     
     private let model: FavoritesArticlesModelProtocol
     private var routes: FAPresenterRoutes
@@ -42,6 +42,10 @@ class FavoritesArticlesPresenter: FavoritesArticlesPresenterProtocol {
         self.routes = routes
         self.articles = []
     }
+}
+
+// MARK: - FavoritesArticlesPresenterProtocol
+extension FavoritesArticlesPresenter: FavoritesArticlesPresenterProtocol {
     
     func showArticleDetails(by index: Int) {
         let article = articles[index]

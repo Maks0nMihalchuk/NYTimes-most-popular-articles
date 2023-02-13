@@ -25,7 +25,7 @@ final class MainCoordinator: Coordinator {
         showTabBarController()
     }
     
-    // MARK: - Private method
+    // MARK: - Private methods
     
     // MARK: - show ViewControllers
     private func showTabBarController() {

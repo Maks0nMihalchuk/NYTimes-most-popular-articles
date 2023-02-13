@@ -13,7 +13,7 @@ protocol MapArticleServiceProtocol {
 
 class MapArticleService {
     
-    // MARK: - Private method
+    // MARK: - Private methods
     
     private func mapMediaResponseTo(data: [MediaResponse]) -> ArticleMediaModel {
         return data.map { [unowned self] media in

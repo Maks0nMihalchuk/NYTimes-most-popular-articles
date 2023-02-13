@@ -36,6 +36,10 @@ class MPArticlesPresenter {
         self.routes = routes
         self.articles = []
     }
+}
+
+// MARK: - MPArticlesPresenterProtocol
+extension MPArticlesPresenter: MPArticlesPresenterProtocol {
     
     func showArticleDetails(by index: Int) {
         let article = articles[index]
@@ -74,9 +78,4 @@ class MPArticlesPresenter {
             }
         }
     }
-}
-
-// MARK: - MPArticlesPresenterProtocol
-extension MPArticlesPresenter: MPArticlesPresenterProtocol {
-    
 }

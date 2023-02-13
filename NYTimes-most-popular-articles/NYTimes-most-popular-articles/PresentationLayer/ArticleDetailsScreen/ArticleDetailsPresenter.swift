@@ -14,7 +14,7 @@ protocol ArticleDetailsPresenterProtocol {
     func didTapAddOrRemoveFromFavorites()
 }
 
-class ArticleDetailsPresenter: ArticleDetailsPresenterProtocol {
+class ArticleDetailsPresenter {
 
     private let model: ArticleDetailsModelProtocol
     private var article: ArticleModel
@@ -27,7 +27,11 @@ class ArticleDetailsPresenter: ArticleDetailsPresenterProtocol {
         self.model = model
         self.article = article
     }
-    
+}
+
+// MARK: - ArticleDetailsPresenterProtocol
+extension ArticleDetailsPresenter: ArticleDetailsPresenterProtocol {
+ 
     func getArticleImage() {
         view?.showLoading()
         
@@ -60,15 +64,18 @@ class ArticleDetailsPresenter: ArticleDetailsPresenterProtocol {
         view?.setArticleAbstract(abstract: article.abstract.isEmpty ? "-" : article.abstract)
         view?.setArticleSection(section: article.section.isEmpty ? "-" : article.section)
     }
+}
+
+// MARK: - Private methods
+private extension ArticleDetailsPresenter {
     
-    // MARK: - Private methods
-    private func downloadImageFromLocalStorage() {
+    func downloadImageFromLocalStorage() {
         let data = model.downloadArticleImageFromLocalStorage(by: article.media.imagePath)
         view?.showImage(with: data)
         view?.hideLoading()
     }
     
-    private func downloadImageFromNetwork() {
+    func downloadImageFromNetwork() {
         view?.showLoading()
         model.downloadArticleImage(by: article.media.url) { [weak self] result in
             guard let self = self else { return }

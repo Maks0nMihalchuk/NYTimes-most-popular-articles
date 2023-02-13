@@ -30,36 +30,37 @@ class ArticleDetailsViewController: BaseViewController {
         static let buttonCornerRadius: CGFloat = 10
         static let duration: CGFloat = 0.3
         static let fullAlpa: CGFloat = 1
+        static let buttonTitleSize: CGFloat = 20
         static let isNotFavoritesText = "Add to Favorites"
         static let isFavoritesText = "Remove from Favorites"
     }
 
-    @IBOutlet weak var imageDownloadIndicatorView: UIActivityIndicatorView!
-    @IBOutlet weak var articlePlaceholderImageView: UIImageView!
-    @IBOutlet weak var articleImageView: UIImageView!
+    @IBOutlet private weak var imageDownloadIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private weak var articlePlaceholderImageView: UIImageView!
+    @IBOutlet private weak var articleImageView: UIImageView!
 
-    @IBOutlet weak var imageAuthorPlaceholderLabel: UILabel!
-    @IBOutlet weak var imageAuthorLabel: UILabel!
+    @IBOutlet private weak var imageAuthorPlaceholderLabel: UILabel!
+    @IBOutlet private weak var imageAuthorLabel: UILabel!
     
-    @IBOutlet weak var articleTitlePlaceholderLabel: UILabel!
-    @IBOutlet weak var articleTitleLabel: UILabel!
+    @IBOutlet private weak var articleTitlePlaceholderLabel: UILabel!
+    @IBOutlet private weak var articleTitleLabel: UILabel!
     
-    @IBOutlet weak var articleAuthorPlaceholderLabel: UILabel!
-    @IBOutlet weak var articleAuthorLabel: UILabel!
+    @IBOutlet private weak var articleAuthorPlaceholderLabel: UILabel!
+    @IBOutlet private weak var articleAuthorLabel: UILabel!
     
-    @IBOutlet weak var articlePublishedPlaceholderLabel: UILabel!
-    @IBOutlet weak var articlePublishedLabel: UILabel!
+    @IBOutlet private weak var articlePublishedPlaceholderLabel: UILabel!
+    @IBOutlet private weak var articlePublishedLabel: UILabel!
     
-    @IBOutlet weak var articleUpdatePlaceholderLabel: UILabel!
-    @IBOutlet weak var articleUpdateLabel: UILabel!
+    @IBOutlet private weak var articleUpdatePlaceholderLabel: UILabel!
+    @IBOutlet private weak var articleUpdateLabel: UILabel!
     
-    @IBOutlet weak var articleAbstractPlaceholderLabel: UILabel!
-    @IBOutlet weak var articleAbstractLabel: UILabel!
+    @IBOutlet private weak var articleAbstractPlaceholderLabel: UILabel!
+    @IBOutlet private weak var articleAbstractLabel: UILabel!
     
-    @IBOutlet weak var articleSectionPlaceholderLabel: UILabel!
-    @IBOutlet weak var articleSectionLabel: UILabel!
+    @IBOutlet private weak var articleSectionPlaceholderLabel: UILabel!
+    @IBOutlet private weak var articleSectionLabel: UILabel!
     
-    @IBOutlet weak var addOrRemoveFromFavoritesButton: UIButton!
+    @IBOutlet private weak var addOrRemoveFromFavoritesButton: UIButton!
     
     var presenter: ArticleDetailsPresenterProtocol?
     
@@ -97,7 +98,10 @@ extension ArticleDetailsViewController: ArticleDetailsViewProtocol {
     func getScreenState(isFavorite: Bool) {
         let title = isFavorite ? Constants.isFavoritesText : Constants.isNotFavoritesText
         let color: UIColor = isFavorite ? .systemRed : .systemBlue
-        addOrRemoveFromFavoritesButton.setTitle(title, for: .normal)
+        let font = UIFont.systemFont(ofSize: Constants.buttonTitleSize, weight: .semibold)
+        let attributedTitle = NSAttributedString(string: title,
+                                                 attributes: [.font: font])
+        addOrRemoveFromFavoritesButton.setAttributedTitle(attributedTitle, for: .normal)
         addOrRemoveFromFavoritesButton.backgroundColor = color
     }
     

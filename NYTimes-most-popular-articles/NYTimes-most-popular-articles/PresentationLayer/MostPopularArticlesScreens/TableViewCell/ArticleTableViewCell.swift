@@ -16,10 +16,6 @@ class ArticleTableViewCell: UITableViewCell {
     
     // MARK: - Public method for configure cell
     
-    override func prepareForReuse() {
-//        favoriteImageView.isHidden = true
-    }
-    
     func configureCell(with articleTitle: String, author: String, isFavorite: Bool) {
         articleTitleLabel.text = articleTitle
         articleAuthorLabel.text = author
