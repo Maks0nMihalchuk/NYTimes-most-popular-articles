@@ -9,6 +9,7 @@ import UIKit
 
 protocol MPArticlesViewProtocol: AnyObject {
     
+    func endRefreshing()
     func showLoading()
     func hideLoading()
     func reloadView()
@@ -17,6 +18,8 @@ protocol MPArticlesViewProtocol: AnyObject {
 
 class MPArticlesViewController: BaseViewController {
     
+    private var refreshControl: UIRefreshControl?
+
     var tableViewDataSource: MPTableViewDataSource?
     var presenter: MPArticlesPresenterProtocol?
 
@@ -24,12 +27,16 @@ class MPArticlesViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         setupBaseTableView()
-        presenter?.sendDataRequest()
+        presenter?.sendNetworkRequest(isRefresh: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.syncDataWithLocalStorage()
+    }
+    
+    @objc private func didPullToRefresh() {
+        presenter?.sendNetworkRequest(isRefresh: true)
     }
 }
 
@@ -51,6 +58,12 @@ extension MPArticlesViewController: MPArticlesViewProtocol {
     func showError(with message: String) {
         UIAlertController.showErrorAlert(message: message)
     }
+    
+    func endRefreshing() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.baseTableView.refreshControl?.endRefreshing()
+        }
+    }
 }
 
 // MARK: - setup UI
@@ -65,9 +78,12 @@ private extension MPArticlesViewController {
             fatalError("CollectionViewDataSource not found")
         }
         
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         setupLayoutBaseTableView()
         baseTableView.regiserCellByClass(cellClass: ArticleTableViewCell.self)
         baseTableView.dataSource = dataSource
         baseTableView.delegate = dataSource
+        baseTableView.refreshControl = refreshControl
     }
 }

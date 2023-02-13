@@ -13,7 +13,7 @@ struct MPArticlesPresenterRoutes {
 
 protocol MPArticlesPresenterProtocol {
     
-    func sendDataRequest()
+    func sendNetworkRequest(isRefresh: Bool)
     func showArticleDetails(by index: Int)
     func getNumberOfArticles() -> Int
     func getArticlesByIndex(_ index: Int) -> ArticleModel
@@ -60,13 +60,14 @@ extension MPArticlesPresenter: MPArticlesPresenterProtocol {
         view?.reloadView()
     }
     
-    func sendDataRequest() {
+    func sendNetworkRequest(isRefresh: Bool) {
         view?.showLoading()
         model.getArticles { [weak self] result in
             guard let self = self else { return }
             
             DispatchQueue.main.async {
                 self.view?.hideLoading()
+                if isRefresh { self.view?.endRefreshing() }
                 switch result {
                 case .success(let articles):
                     self.articles = articles
